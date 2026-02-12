@@ -69,11 +69,6 @@ export default function Projects() {
             <div className="relative z-10">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-3 sm:mb-4 gap-2">
                 <div className="flex items-center gap-2 sm:gap-3">
-                  <span className="inline-flex items-center gap-1 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-medium bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-500/20">
-                    <Star size={10} className="sm:hidden" />
-                    <Star size={12} className="hidden sm:block" />
-                    Featured
-                  </span>
                   {featuredLink ? (
                     <a
                       href={featuredLink}
@@ -88,6 +83,11 @@ export default function Projects() {
                       {featuredProject.title}
                     </h3>
                   )}
+                  <span className="inline-flex items-center gap-1 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-medium bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-500/20 ml-auto sm:ml-0">
+                    <Star size={10} className="sm:hidden" />
+                    <Star size={12} className="hidden sm:block" />
+                    Featured
+                  </span>
                 </div>
                 <div className="flex gap-1 sm:gap-2 relative z-10">
                   {featuredProject.github && (
