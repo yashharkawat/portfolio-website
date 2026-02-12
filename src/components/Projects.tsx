@@ -6,7 +6,7 @@ import { ExternalLink, Github, Calendar, Star } from "lucide-react";
 const featuredProject = {
   title: "FNF Recovery Assistant",
   description:
-    "A full-stack SaaS app that helps Indian employees recover unpaid Full & Final settlement dues from former employers. Features a 4-stage email escalation system (polite reminder → legal notice), formal labour complaint filing with state-specific guides for all 36 states/UTs, Stripe payments, Google OAuth, and cloud file uploads for evidence management.",
+    "A full-stack SaaS app that helps Indian employees recover unpaid Full & Final settlement dues from former employers. Features a 4-stage email escalation system (polite reminder → legal notice), formal labour complaint filing with state-specific guides for all 36 states/UTs, Razorpay payments, Google OAuth, and cloud file uploads for evidence management.",
   period: "Feb 2026",
   tags: ["React", "Node.js", "TypeScript", "PostgreSQL", "Stripe", "Razorpay", "Google Cloud", "Prisma"],
   github: "",
@@ -83,10 +83,9 @@ export default function Projects() {
                       {featuredProject.title}
                     </h3>
                   )}
-                  <span className="inline-flex items-center gap-1 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-medium bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-500/20 ml-auto sm:ml-0">
-                    <Star size={10} className="sm:hidden" />
-                    <Star size={12} className="hidden sm:block" />
-                    Featured
+                  <span className="inline-flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-500/20 ml-auto sm:ml-0 shrink-0">
+                    <Star size={12} className="sm:hidden" />
+                    <Star size={14} className="hidden sm:block" />
                   </span>
                 </div>
                 <div className="flex gap-1 sm:gap-2 relative z-10">
