@@ -68,8 +68,10 @@
 - **Light & Dark mode** — follows system preference, user can toggle manually
 - Smooth scroll navigation
 - Animated sections on scroll
-- Responsive design (mobile-first)
+- **Fully responsive** — 3-tier breakpoints (mobile → sm:640px → md:768px+), tested from 320px to ultrawide
+- Touch-friendly (44px min tap targets on touch devices)
 - Sections: Hero, About, Experience, Projects, Skills, Contact
+- **Live at:** [yashharkawat.com](https://yashharkawat.com)
 
 ---
 
@@ -113,15 +115,34 @@
 - [x] System preference detection (defaultTheme: "system")
 - [x] Build verified with zero errors
 
+### Step 6: Full Responsive Design (Mobile → Desktop)
+- [x] Added `viewport` meta with `theme-color` for mobile browsers
+- [x] Added `overflow-x: hidden` on html/body to prevent horizontal scroll
+- [x] Added minimum 44px touch targets for buttons/links on touch devices (`pointer:coarse`)
+- [x] Hero: `100dvh` to handle mobile browser address bar
+- [x] Hero: Text scaling `text-3xl` → `sm:text-5xl` → `md:text-7xl` → `lg:text-8xl`
+- [x] Hero: CTA buttons stack vertically on mobile, side-by-side from `sm:`
+- [x] Hero: Gradient orbs scale down on mobile (`w-48` → `w-72` → `w-96`)
+- [x] All sections: Padding scales `py-16 px-4` → `sm:py-20 sm:px-6` → `md:py-24`
+- [x] All cards: Padding scales `p-4` → `sm:p-6`
+- [x] All headings: `text-2xl` → `sm:text-3xl` → `md:text-4xl`
+- [x] All body text: `text-base` → `sm:text-lg`
+- [x] All tags: `text-[10px]` → `sm:text-xs`
+- [x] Projects/Skills grid: 1 column on mobile, 2 columns from `sm:` up
+- [x] Contact: Email truncates on narrow screens instead of overflowing
+- [x] Experience: Company names truncate with ellipsis on tiny screens
+- [x] Icons scale down on mobile (16-18px vs 20px on desktop)
+- [x] Progress bars thinner on mobile (`h-1` vs `h-1.5`)
+- [x] Grid background pattern smaller on mobile (40px vs 60px)
+- [x] Tested for 320px (iPhone SE) through ultrawide monitors
+- [x] Build verified with zero errors, pushed to GitHub
+
 ### Step 4: Deployment
 - [x] Git commit (all files committed to main branch)
-- [ ] Deploy to Vercel (run `vercel` in terminal and follow login prompts)
-
-### How to Deploy
-1. Run `vercel login` in your terminal and authenticate
-2. Run `vercel` in the project directory to deploy a preview
-3. Run `vercel --prod` to deploy to production
-4. Alternatively, push to GitHub and connect the repo to Vercel dashboard at vercel.com
+- [x] Deployed to Vercel via GitHub integration
+- [x] Domain: `yashharkawat.com` (purchased on Namecheap)
+- [x] DNS configured: A record → 76.76.21.21, CNAME www → cname.vercel-dns.com
+- [x] SSL certificate auto-provisioned by Vercel
 
 ### Files Created/Modified
 - `src/app/globals.css` - Light/dark theme styles, custom variants, utilities
