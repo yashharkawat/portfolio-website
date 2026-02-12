@@ -10,6 +10,8 @@ const projects = [
       "A full-featured blogging platform inspired by Medium. Includes search and filter by author, title, date and topic. Users can create, edit, save, and delete posts seamlessly.",
     period: "Jun 2023 - Jul 2023",
     tags: ["React.js", "Firebase", "CSS"],
+    github: "https://github.com/yashharkawat",
+    live: "",
     gradient: "from-blue-500/10 dark:from-blue-500/20 to-cyan-500/10 dark:to-cyan-500/20",
     borderGlow: "hover:border-blue-300 dark:hover:border-blue-500/30",
   },
@@ -19,6 +21,8 @@ const projects = [
       "A dynamic movie discovery website showing IMDB ratings and descriptions. Features include search functionality, detailed movie pages, and a likes system for personalized experience.",
     period: "May 2023 - Jun 2023",
     tags: ["React.js", "API Integration", "CSS"],
+    github: "https://github.com/yashharkawat",
+    live: "",
     gradient: "from-purple-500/10 dark:from-purple-500/20 to-pink-500/10 dark:to-pink-500/20",
     borderGlow: "hover:border-purple-300 dark:hover:border-purple-500/30",
   },
@@ -28,6 +32,8 @@ const projects = [
       "Constructed De-Bruijn graph from DNA reads and assembled genome data using Eulerian Cycle. Applied graph algorithms to remove errors like bubbles and tips from error-prone reads.",
     period: "May 2021 - Jul 2021",
     tags: ["Python", "Graph Algorithms", "Bioinformatics"],
+    github: "https://github.com/yashharkawat",
+    live: "",
     gradient: "from-green-500/10 dark:from-green-500/20 to-emerald-500/10 dark:to-emerald-500/20",
     borderGlow: "hover:border-green-300 dark:hover:border-green-500/30",
   },
@@ -37,6 +43,8 @@ const projects = [
       "Chrome extension built at Sprinklr that detects translation errors on websites. Intercepts network requests to identify translation files and highlights labels with color-coded feedback.",
     period: "May 2022 - Jul 2022",
     tags: ["JavaScript", "Chrome API", "i18n"],
+    github: "",
+    live: "",
     gradient: "from-orange-500/10 dark:from-orange-500/20 to-yellow-500/10 dark:to-yellow-500/20",
     borderGlow: "hover:border-orange-300 dark:hover:border-orange-500/30",
   },
@@ -70,14 +78,30 @@ export default function Projects() {
                       {project.title}
                     </h3>
                     <div className="flex gap-1 sm:gap-2">
-                      <button className="p-1.5 sm:p-2 rounded-lg text-gray-400 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/10 transition-all">
-                        <Github size={16} className="sm:hidden" />
-                        <Github size={18} className="hidden sm:block" />
-                      </button>
-                      <button className="p-1.5 sm:p-2 rounded-lg text-gray-400 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/10 transition-all">
-                        <ExternalLink size={16} className="sm:hidden" />
-                        <ExternalLink size={18} className="hidden sm:block" />
-                      </button>
+                      {project.github && (
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-1.5 sm:p-2 rounded-lg text-gray-400 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/10 transition-all"
+                          aria-label={`${project.title} GitHub`}
+                        >
+                          <Github size={16} className="sm:hidden" />
+                          <Github size={18} className="hidden sm:block" />
+                        </a>
+                      )}
+                      {project.live && (
+                        <a
+                          href={project.live}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-1.5 sm:p-2 rounded-lg text-gray-400 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/10 transition-all"
+                          aria-label={`${project.title} Live Demo`}
+                        >
+                          <ExternalLink size={16} className="sm:hidden" />
+                          <ExternalLink size={18} className="hidden sm:block" />
+                        </a>
+                      )}
                     </div>
                   </div>
 
