@@ -8,7 +8,7 @@ const featuredProject = {
   description:
     "A full-stack SaaS app that helps Indian employees recover unpaid Full & Final settlement dues from former employers. Features a 4-stage email escalation system (polite reminder → legal notice), formal labour complaint filing with state-specific guides for all 36 states/UTs, Stripe payments, Google OAuth, and cloud file uploads for evidence management.",
   period: "Feb 2026",
-  tags: ["React", "Node.js", "TypeScript", "PostgreSQL", "Stripe", "Google Cloud", "Prisma"],
+  tags: ["React", "Node.js", "TypeScript", "PostgreSQL", "Stripe", "Razorpay", "Google Cloud", "Prisma"],
   github: "",
   live: "https://fnf-recovery-assistant.vercel.app/",
   gradient: "from-indigo-500/10 dark:from-indigo-500/20 to-blue-500/10 dark:to-blue-500/20",
