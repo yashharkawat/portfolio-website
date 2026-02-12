@@ -73,7 +73,7 @@ export default function Contact() {
                   <span className="text-xs sm:text-sm">GitHub</span>
                 </a>
                 <a
-                  href="https://linkedin.com/in/yashharkawat"
+                  href="https://www.linkedin.com/in/yash-harkawat"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-lg bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-200 dark:hover:bg-white/10 transition-all"

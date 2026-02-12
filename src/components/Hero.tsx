@@ -80,7 +80,7 @@ export default function Hero() {
             <Github size={22} />
           </a>
           <a
-            href="https://linkedin.com/in/yashharkawat"
+            href="https://www.linkedin.com/in/yash-harkawat"
             target="_blank"
             rel="noopener noreferrer"
             className="p-2 text-gray-400 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors"
