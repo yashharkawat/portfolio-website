@@ -144,6 +144,13 @@
 - [x] DNS configured: A record → 76.76.21.21, CNAME www → cname.vercel-dns.com
 - [x] SSL certificate auto-provisioned by Vercel
 
+### Section Reorg & Cleanup
+- [x] Removed "Genome Assembly" and "i18n Chrome Extension" projects
+- [x] Renamed section from "Featured Projects" → "My Products"
+- [x] Moved "My Products" section above "Experience" in page order
+- [x] Updated Navbar links: "Products" replaces "Projects", reordered to match new layout
+- [x] Section id changed from `#projects` → `#products`
+
 ### Files Created/Modified
 - `src/app/globals.css` - Light/dark theme styles, custom variants, utilities
 - `src/app/layout.tsx` - SEO metadata, fonts, ThemeProvider wrapper

@@ -38,28 +38,6 @@ const projects = [
     gradient: "from-purple-500/10 dark:from-purple-500/20 to-pink-500/10 dark:to-pink-500/20",
     borderGlow: "hover:border-purple-300 dark:hover:border-purple-500/30",
   },
-  {
-    title: "Genome Assembly",
-    description:
-      "Constructed De-Bruijn graph from DNA reads and assembled genome data using Eulerian Cycle. Applied graph algorithms to remove errors like bubbles and tips from error-prone reads.",
-    period: "May 2021 - Jul 2021",
-    tags: ["Python", "Graph Algorithms", "Bioinformatics"],
-    github: "https://github.com/yashharkawat",
-    live: "",
-    gradient: "from-green-500/10 dark:from-green-500/20 to-emerald-500/10 dark:to-emerald-500/20",
-    borderGlow: "hover:border-green-300 dark:hover:border-green-500/30",
-  },
-  {
-    title: "i18n Chrome Extension",
-    description:
-      "Chrome extension built at Sprinklr that detects translation errors on websites. Intercepts network requests to identify translation files and highlights labels with color-coded feedback.",
-    period: "May 2022 - Jul 2022",
-    tags: ["JavaScript", "Chrome API", "i18n"],
-    github: "",
-    live: "",
-    gradient: "from-orange-500/10 dark:from-orange-500/20 to-yellow-500/10 dark:to-yellow-500/20",
-    borderGlow: "hover:border-orange-300 dark:hover:border-orange-500/30",
-  },
 ];
 
 function getProjectLink(project: { live: string; github: string }) {
@@ -70,11 +48,11 @@ export default function Projects() {
   const featuredLink = getProjectLink(featuredProject);
 
   return (
-    <section id="projects" className="py-16 sm:py-20 md:py-24 px-4 sm:px-6">
+    <section id="products" className="py-16 sm:py-20 md:py-24 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
         <AnimatedSection>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
-            Featured <span className="gradient-text">Projects</span>
+            My <span className="gradient-text">Products</span>
           </h2>
           <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-8 sm:mb-12" />
         </AnimatedSection>
