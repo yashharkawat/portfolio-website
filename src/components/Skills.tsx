@@ -81,39 +81,39 @@ const colorMap: Record<
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-24 px-6">
+    <section id="skills" className="py-16 sm:py-20 md:py-24 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
         <AnimatedSection>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
             Skills & <span className="gradient-text">Technologies</span>
           </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-12" />
+          <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-8 sm:mb-12" />
         </AnimatedSection>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
           {skillCategories.map((category, index) => (
             <AnimatedSection key={index} delay={index * 0.1}>
-              <div className="p-6 rounded-xl bg-white dark:bg-white/[0.02] border border-gray-200 dark:border-white/5 hover:border-gray-300 dark:hover:border-white/10 transition-all duration-300 shadow-sm dark:shadow-none">
+              <div className="p-4 sm:p-6 rounded-xl bg-white dark:bg-white/[0.02] border border-gray-200 dark:border-white/5 hover:border-gray-300 dark:hover:border-white/10 transition-all duration-300 shadow-sm dark:shadow-none">
                 <h3
-                  className={`text-lg font-semibold mb-6 ${
+                  className={`text-base sm:text-lg font-semibold mb-4 sm:mb-6 ${
                     colorMap[category.color].text
                   }`}
                 >
                   {category.title}
                 </h3>
-                <div className="space-y-4">
+                <div className="space-y-3 sm:space-y-4">
                   {category.skills.map((skill) => (
                     <div key={skill.name}>
-                      <div className="flex justify-between items-center mb-1.5">
-                        <span className="text-sm text-gray-700 dark:text-gray-300">
+                      <div className="flex justify-between items-center mb-1 sm:mb-1.5">
+                        <span className="text-xs sm:text-sm text-gray-700 dark:text-gray-300">
                           {skill.name}
                         </span>
-                        <span className="text-xs text-gray-400 dark:text-gray-500">
+                        <span className="text-[10px] sm:text-xs text-gray-400 dark:text-gray-500">
                           {skill.level}%
                         </span>
                       </div>
                       <div
-                        className={`w-full h-1.5 rounded-full ${
+                        className={`w-full h-1 sm:h-1.5 rounded-full ${
                           colorMap[category.color].trackBg
                         } overflow-hidden`}
                       >

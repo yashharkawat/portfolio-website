@@ -10,6 +10,12 @@
 
 * {
   scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
 }
 
 /* Light mode defaults */
@@ -18,6 +24,9 @@ body {
   color: #111827;
   font-family: var(--font-sans), system-ui, sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Dark mode */
@@ -29,6 +38,14 @@ body {
 ::selection {
   background: rgba(59, 130, 246, 0.3);
   color: #f3f4f6;
+}
+
+/* Minimum touch target size for mobile */
+@media (pointer: coarse) {
+  a, button {
+    min-height: 44px;
+    min-width: 44px;
+  }
 }
 
 /* Scrollbar - Light */
@@ -89,4 +106,11 @@ body {
     linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
   background-size: 60px 60px;
+}
+
+/* Mobile-specific grid pattern (smaller grid) */
+@media (max-width: 640px) {
+  .grid-bg {
+    background-size: 40px 40px;
+  }
 }

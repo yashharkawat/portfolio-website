@@ -47,47 +47,47 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-24 px-6">
+    <section id="experience" className="py-16 sm:py-20 md:py-24 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
         <AnimatedSection>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
             Work <span className="gradient-text">Experience</span>
           </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-12" />
+          <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-8 sm:mb-12" />
         </AnimatedSection>
 
         <div className="relative">
           {/* Timeline line */}
           <div className="absolute left-0 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-blue-500/50 via-purple-500/50 to-transparent" />
 
-          <div className="space-y-12">
+          <div className="space-y-8 sm:space-y-12">
             {experiences.map((exp, index) => (
               <AnimatedSection key={index} delay={index * 0.1}>
-                <div className="relative pl-8 md:pl-20">
+                <div className="relative pl-6 sm:pl-8 md:pl-20">
                   {/* Timeline dot */}
                   <div
-                    className={`absolute left-0 md:left-8 top-2 -translate-x-1/2 w-3 h-3 rounded-full ${
+                    className={`absolute left-0 md:left-8 top-2 -translate-x-1/2 w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full ${
                       exp.current
                         ? "bg-blue-500 shadow-[0_0_12px_rgba(59,130,246,0.5)]"
                         : "bg-gray-300 dark:bg-gray-600"
                     }`}
                   />
 
-                  <div className="p-6 rounded-xl bg-white dark:bg-white/[0.02] border border-gray-200 dark:border-white/5 hover:border-gray-300 dark:hover:border-white/10 transition-all duration-300 group shadow-sm dark:shadow-none">
-                    <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
-                      <div>
-                        <h3 className="text-xl font-semibold text-gray-900 dark:text-white group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors">
+                  <div className="p-4 sm:p-6 rounded-xl bg-white dark:bg-white/[0.02] border border-gray-200 dark:border-white/5 hover:border-gray-300 dark:hover:border-white/10 transition-all duration-300 group shadow-sm dark:shadow-none">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-3 sm:mb-4 gap-2">
+                      <div className="min-w-0">
+                        <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors">
                           {exp.title}
                         </h3>
                         <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400 mt-1">
-                          <Building2 size={14} />
-                          <span className="text-sm">
+                          <Building2 size={14} className="flex-shrink-0" />
+                          <span className="text-xs sm:text-sm truncate">
                             {exp.company}, {exp.location}
                           </span>
                         </div>
                       </div>
                       <span
-                        className={`text-sm px-3 py-1 rounded-full whitespace-nowrap ${
+                        className={`text-xs sm:text-sm px-2.5 sm:px-3 py-1 rounded-full whitespace-nowrap self-start ${
                           exp.current
                             ? "bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-500/20"
                             : "bg-gray-100 dark:bg-white/5 text-gray-500 dark:text-gray-400 border border-gray-200 dark:border-white/5"
@@ -97,13 +97,13 @@ export default function Experience() {
                       </span>
                     </div>
 
-                    <ul className="space-y-2 mb-4">
+                    <ul className="space-y-1.5 sm:space-y-2 mb-3 sm:mb-4">
                       {exp.points.map((point, i) => (
                         <li
                           key={i}
-                          className="text-gray-600 dark:text-gray-400 text-sm flex items-start gap-2"
+                          className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm flex items-start gap-2"
                         >
-                          <span className="text-blue-500 mt-1.5 flex-shrink-0">
+                          <span className="text-blue-500 mt-1 sm:mt-1.5 flex-shrink-0">
                             &#8226;
                           </span>
                           {point}
@@ -111,11 +111,11 @@ export default function Experience() {
                       ))}
                     </ul>
 
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-1.5 sm:gap-2">
                       {exp.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="text-xs px-2.5 py-1 rounded-md bg-gray-100 dark:bg-white/5 text-gray-600 dark:text-gray-400 border border-gray-200 dark:border-white/5"
+                          className="text-[10px] sm:text-xs px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md bg-gray-100 dark:bg-white/5 text-gray-600 dark:text-gray-400 border border-gray-200 dark:border-white/5"
                         >
                           {tag}
                         </span>
