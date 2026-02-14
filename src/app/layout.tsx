@@ -24,7 +24,11 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Yash Harkawat | Software Engineer",
+  metadataBase: new URL("https://www.yashharkawat.com"),
+  title: {
+    default: "Yash Harkawat | Software Engineer",
+    template: "%s | Yash Harkawat",
+  },
   description:
     "Portfolio of Yash Harkawat — Software Engineer at Pulse Energy. IIT Kharagpur graduate specializing in full-stack web development with React, Node.js, and TypeScript.",
   keywords: [
@@ -37,11 +41,28 @@ export const metadata: Metadata = {
     "Portfolio",
   ],
   authors: [{ name: "Yash Harkawat" }],
+  creator: "Yash Harkawat",
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "Yash Harkawat | Software Engineer",
     description:
       "Software Engineer at Pulse Energy. IIT Kharagpur graduate. Building full-stack web applications.",
     type: "website",
+    url: "/",
+    siteName: "Yash Harkawat",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Yash Harkawat | Software Engineer",
+    description:
+      "Software Engineer at Pulse Energy. IIT Kharagpur graduate. Building full-stack web applications.",
   },
 };
 
