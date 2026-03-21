@@ -1,11 +1,13 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import MarqueeStrip from "@/components/MarqueeStrip";
 import About from "@/components/About";
 import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import CustomCursor from "@/components/CustomCursor";
 
 const baseUrl = "https://www.yashharkawat.com";
 
@@ -40,9 +42,11 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <CustomCursor />
       <Navbar />
-      <main>
+      <main className="noise">
         <Hero />
+        <MarqueeStrip />
         <About />
         <Projects />
         <Experience />

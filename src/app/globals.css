@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-/* Enable class-based dark mode for Tailwind v4 */
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
@@ -18,153 +17,290 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
-/* Light mode defaults */
 body {
-  background: #fafafa;
-  color: #111827;
+  background: #f5f4f0;
+  color: #0a0a0a;
   font-family: var(--font-sans), system-ui, sans-serif;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.4s ease, color 0.4s ease;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  cursor: none;
 }
 
-/* Dark mode */
 .dark body {
-  background: #060810;
-  color: #f3f4f6;
+  background: #080808;
+  color: #f0f0ee;
+}
+
+/* Hide default cursor on desktop only */
+@media (pointer: fine) {
+  * { cursor: none !important; }
+}
+
+/* Restore cursor on mobile */
+@media (pointer: coarse) {
+  * { cursor: auto !important; }
+  body { cursor: auto; }
 }
 
 ::selection {
-  background: rgba(99, 102, 241, 0.3);
-  color: #f3f4f6;
+  background: #c9f04a;
+  color: #0a0a0a;
 }
 
-/* Minimum touch target size for mobile */
-@media (pointer: coarse) {
-  a, button {
-    min-height: 44px;
-    min-width: 44px;
-  }
+/* ── Custom Cursor ─────────────────────────────── */
+.cursor-dot {
+  position: fixed;
+  top: -4px;
+  left: -4px;
+  width: 8px;
+  height: 8px;
+  background: #c9f04a;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: opacity 0.3s;
+  will-change: transform;
 }
 
-/* Scrollbar - Light */
-::-webkit-scrollbar {
-  width: 5px;
+.cursor-ring {
+  position: fixed;
+  top: -18px;
+  left: -18px;
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid rgba(201, 240, 74, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transition: opacity 0.3s, width 0.3s, height 0.3s, top 0.3s, left 0.3s, border-color 0.3s;
+  will-change: transform;
 }
 
-::-webkit-scrollbar-track {
-  background: #f9fafb;
+.cursor-ring--hover {
+  top: -28px;
+  left: -28px;
+  width: 56px;
+  height: 56px;
+  border-color: rgba(201, 240, 74, 0.8);
+  background: rgba(201, 240, 74, 0.05);
 }
 
-::-webkit-scrollbar-thumb {
-  background: #d1d5db;
-  border-radius: 3px;
+/* ── Scrollbar ─────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #c9f04a; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #b5d940; }
+.dark ::-webkit-scrollbar-thumb { background: #c9f04a; }
+
+/* ── Typography ────────────────────────────────── */
+.hero-name {
+  font-size: clamp(4rem, 16vw, 17rem);
+  line-height: 0.88;
+  letter-spacing: -0.03em;
+  font-weight: 800;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #9ca3af;
-}
-
-/* Scrollbar - Dark */
-.dark ::-webkit-scrollbar-track {
-  background: #060810;
-}
-
-.dark ::-webkit-scrollbar-thumb {
-  background: #1e2030;
-}
-
-.dark ::-webkit-scrollbar-thumb:hover {
-  background: #2d3048;
-}
-
-/* Animated gradient text */
+/* ── Gradient text (lime) ──────────────────────── */
 .gradient-text {
-  background: linear-gradient(135deg, #6366f1, #8b5cf6, #ec4899, #6366f1);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: gradient-shift 4s linear infinite;
+  color: #6b9a0f;
+}
+.dark .gradient-text {
+  color: #c9f04a;
 }
 
-@keyframes gradient-shift {
-  0% { background-position: 0% center; }
-  100% { background-position: 200% center; }
-}
+.accent { color: #c9f04a; }
+.accent-bg { background: #c9f04a; }
+.accent-border { border-color: #c9f04a; }
 
-/* Static gradient for smaller elements */
-.gradient-text-static {
-  background: linear-gradient(135deg, #6366f1, #8b5cf6, #ec4899);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+/* ── Noise overlay ─────────────────────────────── */
+.noise::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
+.dark .noise::after { opacity: 0.04; }
 
-/* Glow effect */
-.glow {
-  box-shadow: 0 0 40px rgba(99, 102, 241, 0.2), 0 0 80px rgba(139, 92, 246, 0.1);
+/* ── Section label ─────────────────────────────── */
+.section-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #999;
 }
+.dark .section-label { color: #555; }
 
-/* Card glow on hover */
-.card-hover {
-  transition: all 0.3s ease;
+.section-number {
+  font-size: clamp(4rem, 8vw, 7rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: #ebebeb;
+  user-select: none;
 }
-.card-hover:hover {
-  box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.2), 0 8px 32px rgba(99, 102, 241, 0.08);
+.dark .section-number { color: #161616; }
+
+/* ── Divider ───────────────────────────────────── */
+.divider {
+  width: 100%;
+  height: 1px;
+  background: #e0dfd9;
+}
+.dark .divider { background: #1c1c1c; }
+
+/* ── Card ──────────────────────────────────────── */
+.card {
+  background: #ffffff;
+  border: 1px solid #e8e7e2;
+  border-radius: 16px;
+  transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+}
+.dark .card {
+  background: #111111;
+  border-color: #1f1f1f;
+}
+.card:hover {
+  border-color: #c9f04a;
+  box-shadow: 0 0 0 1px #c9f04a, 0 8px 32px rgba(201,240,74,0.08);
   transform: translateY(-2px);
 }
-.dark .card-hover:hover {
-  box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.3), 0 8px 32px rgba(99, 102, 241, 0.15);
+.dark .card:hover {
+  box-shadow: 0 0 0 1px #c9f04a, 0 8px 32px rgba(201,240,74,0.06);
 }
 
-/* Grid background pattern - Light */
+/* ── Pill tag ──────────────────────────────────── */
+.pill {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: #f0efe9;
+  color: #555;
+  border: 1px solid #e0dfd9;
+  transition: background 0.2s, color 0.2s;
+}
+.dark .pill {
+  background: #1a1a1a;
+  color: #888;
+  border-color: #2a2a2a;
+}
+.pill:hover {
+  background: #c9f04a;
+  color: #0a0a0a;
+  border-color: #c9f04a;
+}
+
+/* ── Button ────────────────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  background: #0a0a0a;
+  color: #f0f0ee;
+  font-weight: 600;
+  font-size: 0.875rem;
+  border: 1px solid #0a0a0a;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+.dark .btn-primary {
+  background: #f0f0ee;
+  color: #0a0a0a;
+  border-color: #f0f0ee;
+}
+.btn-primary:hover {
+  background: #c9f04a;
+  color: #0a0a0a;
+  border-color: #c9f04a;
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  background: transparent;
+  color: #0a0a0a;
+  font-weight: 600;
+  font-size: 0.875rem;
+  border: 1px solid #0a0a0a;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+.dark .btn-outline {
+  color: #f0f0ee;
+  border-color: #2a2a2a;
+}
+.btn-outline:hover {
+  background: #c9f04a;
+  color: #0a0a0a;
+  border-color: #c9f04a;
+  transform: translateY(-1px);
+}
+
+/* ── Marquee ───────────────────────────────────── */
+.marquee-wrapper {
+  overflow: hidden;
+  width: 100%;
+  background: #0a0a0a;
+  padding: 1rem 0;
+  border-top: 1px solid #1c1c1c;
+  border-bottom: 1px solid #1c1c1c;
+}
+.dark .marquee-wrapper { background: #0d0d0d; }
+
+.marquee-track {
+  display: flex;
+  white-space: nowrap;
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 1.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #f0f0ee;
+}
+
+.marquee-dot {
+  color: #c9f04a;
+  margin-left: 1.5rem;
+  font-size: 0.5rem;
+}
+
+/* ── Grid bg for hero ──────────────────────────── */
 .grid-bg {
-  background-color: #fafafa;
-  background-image:
-    linear-gradient(rgba(99, 102, 241, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(99, 102, 241, 0.05) 1px, transparent 1px);
-  background-size: 60px 60px;
+  background-color: #f5f4f0;
 }
-
-/* Grid background pattern - Dark */
 .dark .grid-bg {
-  background-color: #060810;
-  background-image:
-    linear-gradient(rgba(99, 102, 241, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(99, 102, 241, 0.04) 1px, transparent 1px);
-  background-size: 60px 60px;
+  background-color: #080808;
 }
 
-/* Mobile-specific grid pattern (smaller grid) */
-@media (max-width: 640px) {
-  .grid-bg {
-    background-size: 40px 40px;
-  }
+/* ── Minimal touch targets ─────────────────────── */
+@media (pointer: coarse) {
+  a, button { min-height: 44px; min-width: 44px; }
 }
 
-/* Noise overlay for dark mode texture */
-.dark .grid-bg::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 0;
+/* ── Gradient text fallback ────────────────────── */
+.gradient-text-static {
+  color: #6b9a0f;
 }
-
-/* Pulsing dot animation */
-@keyframes pulse-dot {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.6; transform: scale(1.4); }
-}
-
-.pulse-dot {
-  animation: pulse-dot 2s ease-in-out infinite;
-}
-
-/* Shimmer effect for stat numbers */
-.stat-number {
-  font-variant-numeric: tabular-nums;
-}
+.dark .gradient-text-static { color: #c9f04a; }

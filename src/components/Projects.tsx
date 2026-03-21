@@ -59,13 +59,16 @@ export default function Projects() {
   const featuredLink = getProjectLink(featuredProject);
 
   return (
-    <section id="products" className="py-16 sm:py-20 md:py-24 px-4 sm:px-6">
-      <div className="max-w-6xl mx-auto">
+    <section id="products" className="py-20 sm:py-28 px-5 sm:px-8 md:px-12">
+      <div className="max-w-7xl mx-auto">
         <AnimatedSection>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
-            My <span className="gradient-text">Products</span>
-          </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full mb-8 sm:mb-12" />
+          <div className="flex items-end gap-4 mb-12 sm:mb-16">
+            <span className="section-number">02</span>
+            <div className="mb-3">
+              <span className="section-label block mb-1">What I've built</span>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#0a0a0a] dark:text-[#f0f0ee]">Products</h2>
+            </div>
+          </div>
         </AnimatedSection>
 
         {/* Featured project - full width */}

@@ -7,7 +7,7 @@ import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
   { label: "About", href: "#about" },
-  { label: "Products", href: "#products" },
+  { label: "Work", href: "#products" },
   { label: "Experience", href: "#experience" },
   { label: "Skills", href: "#skills" },
   { label: "Contact", href: "#contact" },
@@ -18,7 +18,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
+    const handleScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -26,30 +26,27 @@ export default function Navbar() {
   return (
     <>
       <motion.nav
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
+        initial={{ y: -80, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-white/80 dark:bg-[#060810]/80 backdrop-blur-xl border-b border-gray-100 dark:border-white/5 shadow-sm dark:shadow-none"
+            ? "bg-[#f5f4f0]/90 dark:bg-[#080808]/90 backdrop-blur-xl border-b border-[#e0dfd9] dark:border-[#1c1c1c]"
             : "bg-transparent"
         }`}
       >
-        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <a
-            href="#"
-            className="text-xl font-bold tracking-tight gradient-text"
-          >
-            YH
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 py-4 flex items-center justify-between">
+          <a href="#" className="text-lg font-bold tracking-tight text-[#0a0a0a] dark:text-[#f0f0ee]">
+            YH<span className="text-[#c9f04a]">.</span>
           </a>
 
-          {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-8">
+          {/* Desktop */}
+          <div className="hidden md:flex items-center gap-7">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
+                className="text-sm text-gray-500 dark:text-gray-400 hover:text-[#0a0a0a] dark:hover:text-[#f0f0ee] transition-colors duration-200 font-medium"
               >
                 {link.label}
               </a>
@@ -59,50 +56,52 @@ export default function Navbar() {
               href="/Yash_Harkawat_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm px-4 py-2 rounded-lg bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-white/10 transition-all duration-200"
+              className="btn-primary text-xs px-4 py-2"
             >
               Resume
             </a>
           </div>
 
-          {/* Mobile toggle */}
+          {/* Mobile */}
           <div className="flex items-center gap-3 md:hidden">
             <ThemeToggle />
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+              className="p-2 text-[#0a0a0a] dark:text-[#f0f0ee]"
             >
-              {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+              {mobileOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
           </div>
         </div>
       </motion.nav>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-white/95 dark:bg-[#060810]/95 backdrop-blur-xl pt-20 px-6 md:hidden"
+            exit={{ opacity: 0, y: -10 }}
+            className="fixed inset-0 z-40 bg-[#f5f4f0]/98 dark:bg-[#080808]/98 backdrop-blur-xl pt-24 px-8 md:hidden"
           >
-            <div className="flex flex-col gap-6">
-              {navLinks.map((link) => (
-                <a
+            <div className="flex flex-col gap-2">
+              {navLinks.map((link, i) => (
+                <motion.a
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="text-2xl font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.06 }}
+                  className="text-3xl font-bold text-[#0a0a0a] dark:text-[#f0f0ee] py-2 border-b border-[#e0dfd9] dark:border-[#1c1c1c] hover:text-[#c9f04a] dark:hover:text-[#c9f04a] transition-colors"
                 >
                   {link.label}
-                </a>
+                </motion.a>
               ))}
               <a
                 href="/Yash_Harkawat_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-lg px-6 py-3 rounded-lg bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-white/10 transition-all text-center mt-4"
+                className="btn-primary mt-6 justify-center"
               >
                 Resume
               </a>

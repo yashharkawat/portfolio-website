@@ -5,65 +5,46 @@ import { Mail, Phone, MapPin, Send, Github, Linkedin, ArrowUpRight } from "lucid
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-16 sm:py-20 md:py-24 px-4 sm:px-6">
-      <div className="max-w-6xl mx-auto">
+    <section id="contact" className="py-20 sm:py-28 px-5 sm:px-8 md:px-12">
+      <div className="max-w-7xl mx-auto">
         <AnimatedSection>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
-            Get in <span className="gradient-text">Touch</span>
-          </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full mb-4 sm:mb-6" />
-          <p className="text-gray-500 dark:text-gray-400 text-base sm:text-lg max-w-xl mb-8 sm:mb-12">
-            Open to new opportunities, interesting projects, or just a good tech conversation.
-          </p>
+          <div className="flex items-end gap-4 mb-12 sm:mb-16">
+            <span className="section-number">05</span>
+            <div className="mb-3">
+              <span className="section-label block mb-1">Say hello</span>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#0a0a0a] dark:text-[#f0f0ee]">Get in Touch</h2>
+            </div>
+          </div>
         </AnimatedSection>
 
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
           <AnimatedSection delay={0.1}>
-            <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
+            <p className="text-gray-500 dark:text-gray-400 text-base sm:text-lg leading-relaxed mb-8">
+              Open to new roles, interesting projects, or just a good tech conversation.
+              My inbox is always open.
+            </p>
+
+            <div className="space-y-3 mb-8">
               {[
-                {
-                  href: "mailto:yashharkawat2000@gmail.com",
-                  icon: Mail,
-                  label: "Email",
-                  value: "yashharkawat2000@gmail.com",
-                  color: "indigo",
-                },
-                {
-                  href: "tel:+918824874733",
-                  icon: Phone,
-                  label: "Phone",
-                  value: "+91 8824874733",
-                  color: "purple",
-                },
-                {
-                  href: undefined,
-                  icon: MapPin,
-                  label: "Location",
-                  value: "Bengaluru, India",
-                  color: "pink",
-                },
+                { href: "mailto:yashharkawat2000@gmail.com", icon: Mail, label: "Email", value: "yashharkawat2000@gmail.com" },
+                { href: "tel:+918824874733", icon: Phone, label: "Phone", value: "+91 8824874733" },
+                { href: undefined, icon: MapPin, label: "Location", value: "Bengaluru, India" },
               ].map((item) => {
-                const colorMap: Record<string, { bg: string; icon: string; border: string }> = {
-                  indigo: { bg: "bg-indigo-50 dark:bg-indigo-500/10", icon: "text-indigo-500 dark:text-indigo-400", border: "hover:border-indigo-200 dark:hover:border-indigo-500/30" },
-                  purple: { bg: "bg-purple-50 dark:bg-purple-500/10", icon: "text-purple-500 dark:text-purple-400", border: "hover:border-purple-200 dark:hover:border-purple-500/30" },
-                  pink:   { bg: "bg-pink-50 dark:bg-pink-500/10",     icon: "text-pink-500 dark:text-pink-400",     border: "hover:border-pink-200 dark:hover:border-pink-500/30" },
-                };
-                const c = colorMap[item.color];
                 const Tag = item.href ? "a" : "div";
                 return (
                   <Tag
                     key={item.label}
                     {...(item.href ? { href: item.href } : {})}
-                    className={`flex items-center gap-4 p-4 rounded-2xl bg-white dark:bg-white/[0.02] border border-gray-100 dark:border-white/5 ${c.border} transition-all card-hover`}
+                    className="card flex items-center gap-4 p-4 group"
                   >
-                    <div className={`p-2.5 rounded-xl ${c.bg} flex-shrink-0`}>
-                      <item.icon size={18} className={c.icon} />
+                    <div className="w-9 h-9 rounded-xl bg-[#f0efe9] dark:bg-[#1a1a1a] flex items-center justify-center flex-shrink-0 group-hover:bg-[#c9f04a] transition-colors">
+                      <item.icon size={16} className="text-gray-500 dark:text-gray-400 group-hover:text-[#0a0a0a] transition-colors" />
                     </div>
-                    <div className="min-w-0">
-                      <p className="text-xs text-gray-400 dark:text-gray-500 mb-0.5">{item.label}</p>
-                      <p className="text-gray-900 dark:text-white text-sm font-medium truncate">{item.value}</p>
+                    <div className="min-w-0 flex-1">
+                      <p className="section-label">{item.label}</p>
+                      <p className="text-sm font-medium text-[#0a0a0a] dark:text-[#f0f0ee] truncate mt-0.5">{item.value}</p>
                     </div>
-                    {item.href && <ArrowUpRight size={14} className="text-gray-300 dark:text-gray-600 ml-auto flex-shrink-0" />}
+                    {item.href && <ArrowUpRight size={14} className="text-gray-300 dark:text-gray-600 flex-shrink-0" />}
                   </Tag>
                 );
               })}
@@ -74,15 +55,8 @@ export default function Contact() {
                 { href: "https://github.com/yashharkawat", icon: Github, label: "GitHub" },
                 { href: "https://www.linkedin.com/in/yash-harkawat", icon: Linkedin, label: "LinkedIn" },
               ].map(({ href, icon: Icon, label }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white dark:bg-white/[0.04] border border-gray-100 dark:border-white/8 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:border-gray-200 dark:hover:border-white/15 transition-all text-sm font-medium"
-                >
-                  <Icon size={16} />
-                  {label}
+                <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="btn-outline">
+                  <Icon size={15} /> {label}
                 </a>
               ))}
             </div>
@@ -97,44 +71,30 @@ export default function Contact() {
                 const message = (el.namedItem("message") as HTMLTextAreaElement)?.value || "";
                 window.location.href = `mailto:yashharkawat2000@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
               }}
-              className="space-y-4 p-5 sm:p-6 rounded-2xl bg-white dark:bg-white/[0.02] border border-gray-100 dark:border-white/5"
+              className="card p-6 sm:p-8 space-y-5"
             >
-              <h3 className="font-semibold text-gray-900 dark:text-white mb-5">Send a message</h3>
+              <h3 className="font-bold text-[#0a0a0a] dark:text-[#f0f0ee] text-lg mb-2">Send a message</h3>
               {[
-                { id: "name", label: "Name", type: "input", placeholder: "Your name" },
-                { id: "subject", label: "Subject", type: "input", placeholder: "What's this about?" },
-              ].map((field) => (
-                <div key={field.id}>
-                  <label htmlFor={field.id} className="block text-xs text-gray-500 dark:text-gray-400 mb-1.5 font-medium">
-                    {field.label}
-                  </label>
+                { id: "name", label: "Name", placeholder: "Your name", type: "input" },
+                { id: "subject", label: "Subject", placeholder: "What's this about?", type: "input" },
+              ].map((f) => (
+                <div key={f.id}>
+                  <label htmlFor={f.id} className="section-label block mb-2">{f.label}</label>
                   <input
-                    type="text"
-                    id={field.id}
-                    name={field.id}
-                    placeholder={field.placeholder}
-                    className="w-full px-4 py-2.5 rounded-xl bg-gray-50 dark:bg-white/[0.03] border border-gray-200 dark:border-white/8 text-gray-900 dark:text-white placeholder:text-gray-300 dark:placeholder:text-gray-600 focus:outline-none focus:border-indigo-400 dark:focus:border-indigo-500/50 transition-colors text-sm"
+                    type="text" id={f.id} name={f.id} placeholder={f.placeholder}
+                    className="w-full px-4 py-3 rounded-xl bg-[#f5f4f0] dark:bg-[#161616] border border-[#e0dfd9] dark:border-[#2a2a2a] text-[#0a0a0a] dark:text-[#f0f0ee] placeholder:text-gray-300 dark:placeholder:text-gray-700 focus:outline-none focus:border-[#c9f04a] transition-colors text-sm"
                   />
                 </div>
               ))}
               <div>
-                <label htmlFor="message" className="block text-xs text-gray-500 dark:text-gray-400 mb-1.5 font-medium">
-                  Message
-                </label>
+                <label htmlFor="message" className="section-label block mb-2">Message</label>
                 <textarea
-                  id="message"
-                  name="message"
-                  rows={4}
-                  placeholder="Your message..."
-                  className="w-full px-4 py-2.5 rounded-xl bg-gray-50 dark:bg-white/[0.03] border border-gray-200 dark:border-white/8 text-gray-900 dark:text-white placeholder:text-gray-300 dark:placeholder:text-gray-600 focus:outline-none focus:border-indigo-400 dark:focus:border-indigo-500/50 transition-colors resize-none text-sm"
+                  id="message" name="message" rows={4} placeholder="Your message..."
+                  className="w-full px-4 py-3 rounded-xl bg-[#f5f4f0] dark:bg-[#161616] border border-[#e0dfd9] dark:border-[#2a2a2a] text-[#0a0a0a] dark:text-[#f0f0ee] placeholder:text-gray-300 dark:placeholder:text-gray-700 focus:outline-none focus:border-[#c9f04a] transition-colors resize-none text-sm"
                 />
               </div>
-              <button
-                type="submit"
-                className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-medium hover:opacity-90 transition-opacity shadow-lg shadow-indigo-500/20 text-sm"
-              >
-                <Send size={14} />
-                Send Message
+              <button type="submit" className="btn-primary w-full justify-center">
+                <Send size={14} /> Send Message
               </button>
             </form>
           </AnimatedSection>
