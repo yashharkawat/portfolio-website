@@ -11,8 +11,8 @@ const featuredProject = {
   tags: ["React", "Node.js", "TypeScript", "PostgreSQL", "Stripe", "Razorpay", "Google Cloud", "Prisma"],
   github: "",
   live: "https://fnf-recovery-assistant.vercel.app/",
-  gradient: "from-indigo-500/10 dark:from-indigo-500/20 to-blue-500/10 dark:to-blue-500/20",
-  borderGlow: "hover:border-indigo-300 dark:hover:border-indigo-500/30",
+  gradient: "from-indigo-500/8 dark:from-indigo-500/15 to-purple-500/8 dark:to-purple-500/15",
+  borderGlow: "hover:border-indigo-200 dark:hover:border-indigo-500/30",
 };
 
 const projects = [
@@ -65,7 +65,7 @@ export default function Projects() {
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
             My <span className="gradient-text">Products</span>
           </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-8 sm:mb-12" />
+          <div className="w-16 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full mb-8 sm:mb-12" />
         </AnimatedSection>
 
         {/* Featured project - full width */}
