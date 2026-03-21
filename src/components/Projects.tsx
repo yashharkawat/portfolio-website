@@ -17,6 +17,17 @@ const featuredProject = {
 
 const projects = [
   {
+    title: "ScheduleAI",
+    description:
+      "A mobile-first PWA for guided timed workout sessions. Upload a PDF or DOCX and AI auto-extracts your weekly schedule. Features a live session timer with sounds, TTS voice instructions, Web Push notifications, streak tracking, and offline support.",
+    period: "Mar 2026",
+    tags: ["React", "Node.js", "PostgreSQL", "Clerk", "Gemini AI", "PWA", "Prisma", "Netlify"],
+    github: "https://github.com/yashharkawat/timer_app",
+    live: "https://scheduleai-frontend.netlify.app/",
+    gradient: "from-amber-500/10 dark:from-amber-500/20 to-orange-500/10 dark:to-orange-500/20",
+    borderGlow: "hover:border-amber-300 dark:hover:border-amber-500/30",
+  },
+  {
     title: "Blogs Website",
     description:
       "A full-featured blogging platform inspired by Medium. Includes search and filter by author, title, date and topic. Users can create, edit, save, and delete posts seamlessly.",
