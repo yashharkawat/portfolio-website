@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import ThemeProvider from "@/components/ThemeProvider";
 import Analytics from "@/components/Analytics";
@@ -80,6 +81,12 @@ export default function RootLayout({
         <Analytics>
           <ThemeProvider>{children}</ThemeProvider>
         </Analytics>
+        <Script
+          data-goatcounter="https://yashharkawat.goatcounter.com/count"
+          async
+          src="//gc.zgo.at/count.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );

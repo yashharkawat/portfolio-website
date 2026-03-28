@@ -1,6 +1,7 @@
 "use client";
 
 import { Heart } from "lucide-react";
+import VisitorCount from "./VisitorCount";
 
 export default function Footer() {
   return (
@@ -9,6 +10,7 @@ export default function Footer() {
         <p className="text-xs sm:text-sm text-gray-500 text-center sm:text-left">
           &copy; {new Date().getFullYear()} Yash Harkawat. All rights reserved.
         </p>
+        <VisitorCount />
         <p className="text-xs sm:text-sm text-gray-500 flex items-center gap-1">
           Built with <Heart size={10} className="text-red-400 sm:hidden" /><Heart size={12} className="text-red-400 hidden sm:block" /> using Next.js
           & Tailwind CSS
