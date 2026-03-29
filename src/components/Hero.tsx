@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
+import VisitorStats from "./VisitorStats";
 
 const roles = ["Full Stack Engineer", "React Developer", "Product Builder", "Node.js Engineer"];
 
@@ -10,7 +11,7 @@ export default function Hero() {
   const [roleIndex, setRoleIndex] = useState(0);
 
   useEffect(() => {
-    const t = setInterval(() => setRoleIndex(i => (i + 1) % roles.length), 3000);
+    const t = setInterval(() => setRoleIndex(i => (i + 1) % roles.length), 1800);
     return () => clearInterval(t);
   }, []);
 
@@ -24,12 +25,13 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
-          {/* Status badge */}
-          <div className="flex items-center gap-2 mb-6 sm:mb-8">
+          {/* Status badge + visitor stats */}
+          <div className="flex items-center gap-3 mb-6 sm:mb-8 flex-wrap">
             <span className="flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold bg-black dark:bg-white/10 text-white dark:text-white border border-black/10 dark:border-white/10">
               <span className="w-1.5 h-1.5 rounded-full bg-[#c9f04a] animate-pulse" />
               Open to opportunities
             </span>
+            <VisitorStats />
           </div>
 
           {/* Giant name */}

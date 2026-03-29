@@ -13,8 +13,8 @@ export async function GET() {
       return NextResponse.json({ count: null });
     }
     const data = await res.json();
-    return NextResponse.json({ count: data.count });
+    return NextResponse.json({ count: data.count, count_unique: data.count_unique });
   } catch {
-    return NextResponse.json({ count: null });
+    return NextResponse.json({ count: null, count_unique: null });
   }
 }
