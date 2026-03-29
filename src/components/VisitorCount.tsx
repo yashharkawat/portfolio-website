@@ -8,9 +8,7 @@ export default function VisitorCount() {
   useEffect(() => {
     async function fetchCount() {
       try {
-        const res = await fetch(
-          "https://yashharkawat.goatcounter.com/counter/%2F.json"
-        );
+        const res = await fetch("/api/visitors");
         if (!res.ok) return;
         const data = await res.json();
         if (data.count && data.count !== "0") {
