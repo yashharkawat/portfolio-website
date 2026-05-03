@@ -39,6 +39,17 @@ const projects = [
     borderGlow: "hover:border-blue-300 dark:hover:border-blue-500/30",
   },
   {
+    title: "Zojo Fashion",
+    description:
+      "India-first anime/otaku-themed men's clothing e-commerce platform. Full monorepo with a Next.js storefront and Express + TypeScript API. Features Razorpay payments (UPI, cards, COD), phone OTP + JWT auth, Cloudinary CDN images, Prisma ORM with 15+ models, and CI/CD via GitHub Actions.",
+    period: "Apr 2026",
+    tags: ["Next.js", "TypeScript", "Express", "PostgreSQL", "Prisma", "Razorpay", "Cloudinary", "Redux Toolkit"],
+    github: "https://github.com/yashharkawat/zojo-fashion",
+    live: "https://zojo-fashion.yashharkawat.com",
+    gradient: "from-rose-500/10 dark:from-rose-500/20 to-pink-500/10 dark:to-pink-500/20",
+    borderGlow: "hover:border-rose-300 dark:hover:border-rose-500/30",
+  },
+  {
     title: "Movies Website",
     description:
       "A dynamic movie discovery website showing IMDB ratings and descriptions. Features include search functionality, detailed movie pages, and a likes system for personalized experience.",
