@@ -4,18 +4,29 @@ import AnimatedSection from "./AnimatedSection";
 import { ExternalLink, Github, Calendar, Star } from "lucide-react";
 
 const featuredProject = {
-  title: "FNF Recovery Assistant",
+  title: "Zojo Fashion",
   description:
-    "A full-stack SaaS app that helps Indian employees recover unpaid Full & Final settlement dues from former employers. Features a 4-stage email escalation system (polite reminder → legal notice), formal labour complaint filing with state-specific guides for all 36 states/UTs, Razorpay payments, Google OAuth, and cloud file uploads for evidence management.",
-  period: "Feb 2026",
-  tags: ["React", "Node.js", "TypeScript", "PostgreSQL", "Stripe", "Razorpay", "Google Cloud", "Prisma"],
-  github: "",
-  live: "https://fnf-recovery.yashharkawat.com",
-  gradient: "from-indigo-500/8 dark:from-indigo-500/15 to-purple-500/8 dark:to-purple-500/15",
-  borderGlow: "hover:border-indigo-200 dark:hover:border-indigo-500/30",
+    "India-first anime/otaku-themed men's clothing e-commerce platform. Full monorepo with a Next.js storefront and Express + TypeScript API. Features Razorpay payments (UPI, cards, COD), phone OTP + JWT auth, Cloudinary CDN images, Prisma ORM with 15+ models, and CI/CD via GitHub Actions.",
+  period: "Apr 2026",
+  tags: ["Next.js", "TypeScript", "Express", "PostgreSQL", "Prisma", "Razorpay", "Cloudinary", "Redux Toolkit"],
+  github: "https://github.com/yashharkawat/zojo-fashion",
+  live: "https://zojo-fashion.yashharkawat.com",
+  gradient: "from-rose-500/8 dark:from-rose-500/15 to-pink-500/8 dark:to-pink-500/15",
+  borderGlow: "hover:border-rose-200 dark:hover:border-rose-500/30",
 };
 
 const projects = [
+  {
+    title: "FNF Recovery Assistant",
+    description:
+      "A full-stack SaaS app that helps Indian employees recover unpaid Full & Final settlement dues from former employers. Features a 4-stage email escalation system (polite reminder → legal notice), formal labour complaint filing with state-specific guides for all 36 states/UTs, Razorpay payments, Google OAuth, and cloud file uploads for evidence management.",
+    period: "Feb 2026",
+    tags: ["React", "Node.js", "TypeScript", "PostgreSQL", "Razorpay", "Google Cloud", "Prisma"],
+    github: "",
+    live: "https://fnf-recovery.yashharkawat.com",
+    gradient: "from-indigo-500/10 dark:from-indigo-500/20 to-purple-500/10 dark:to-purple-500/20",
+    borderGlow: "hover:border-indigo-300 dark:hover:border-indigo-500/30",
+  },
   {
     title: "ScheduleAI",
     description:
@@ -37,17 +48,6 @@ const projects = [
     live: "https://blogs-website.yashharkawat.com",
     gradient: "from-blue-500/10 dark:from-blue-500/20 to-cyan-500/10 dark:to-cyan-500/20",
     borderGlow: "hover:border-blue-300 dark:hover:border-blue-500/30",
-  },
-  {
-    title: "Zojo Fashion",
-    description:
-      "India-first anime/otaku-themed men's clothing e-commerce platform. Full monorepo with a Next.js storefront and Express + TypeScript API. Features Razorpay payments (UPI, cards, COD), phone OTP + JWT auth, Cloudinary CDN images, Prisma ORM with 15+ models, and CI/CD via GitHub Actions.",
-    period: "Apr 2026",
-    tags: ["Next.js", "TypeScript", "Express", "PostgreSQL", "Prisma", "Razorpay", "Cloudinary", "Redux Toolkit"],
-    github: "https://github.com/yashharkawat/zojo-fashion",
-    live: "https://zojo-fashion.yashharkawat.com",
-    gradient: "from-rose-500/10 dark:from-rose-500/20 to-pink-500/10 dark:to-pink-500/20",
-    borderGlow: "hover:border-rose-300 dark:hover:border-rose-500/30",
   },
   {
     title: "Movies Website",
@@ -120,7 +120,7 @@ export default function Projects() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="p-1.5 sm:p-2 rounded-lg text-gray-400 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/10 transition-all"
-                      aria-label="FNF Recovery Assistant GitHub"
+                      aria-label={`${featuredProject.title} GitHub`}
                     >
                       <Github size={16} className="sm:hidden" />
                       <Github size={18} className="hidden sm:block" />
@@ -132,7 +132,7 @@ export default function Projects() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="p-1.5 sm:p-2 rounded-lg text-gray-400 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/10 transition-all"
-                      aria-label="FNF Recovery Assistant Live"
+                      aria-label={`${featuredProject.title} Live`}
                     >
                       <ExternalLink size={16} className="sm:hidden" />
                       <ExternalLink size={18} className="hidden sm:block" />
