@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 
-const navLinks = [
+const defaultLinks = [
   { label: "About", href: "#about" },
   { label: "Work", href: "#products" },
   { label: "Experience", href: "#experience" },
@@ -13,7 +13,12 @@ const navLinks = [
   { label: "Contact", href: "#contact" },
 ];
 
-export default function Navbar() {
+interface NavbarProps {
+  links?: { label: string; href: string }[];
+}
+
+export default function Navbar({ links = defaultLinks }: NavbarProps) {
+  const navLinks = links;
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
