@@ -17,6 +17,17 @@ const featuredProject = {
 
 const projects = [
   {
+    title: "Codebase Copilot",
+    description:
+      "An MCP server that gives Claude Code, Cursor and Claude Desktop hybrid semantic search over any repository. Tree-sitter AST chunking, local ONNX embeddings (no API key) and BM25 fused with reciprocal-rank fusion. Measured on 50 hand-verified questions: Recall@5 80% → 88%, Recall@1 44% → 62% over a naive RAG baseline. Ships with a remote MCP endpoint, a live retrieval playground and cited LLM answers.",
+    period: "Sep 2026",
+    tags: ["MCP", "RAG", "TypeScript", "Next.js", "Tree-sitter", "ONNX", "BM25", "Vercel"],
+    github: "https://github.com/yashharkawat/codebase-copilot",
+    live: "https://codebase-copilot.zojoofficial.com",
+    gradient: "from-emerald-500/10 dark:from-emerald-500/20 to-teal-500/10 dark:to-teal-500/20",
+    borderGlow: "hover:border-emerald-300 dark:hover:border-emerald-500/30",
+  },
+  {
     title: "FNF Recovery Assistant",
     description:
       "A full-stack SaaS app that helps Indian employees recover unpaid Full & Final settlement dues from former employers. Features a 4-stage email escalation system (polite reminder → legal notice), formal labour complaint filing with state-specific guides for all 36 states/UTs, Razorpay payments, Google OAuth, and cloud file uploads for evidence management.",
