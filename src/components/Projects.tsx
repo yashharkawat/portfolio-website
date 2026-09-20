@@ -28,6 +28,17 @@ const projects = [
     borderGlow: "hover:border-emerald-300 dark:hover:border-emerald-500/30",
   },
   {
+    title: "Helpdesk Agent",
+    description:
+      "A customer-support AI agent with a hand-written agent loop. It is an MCP client that discovers its tools from three MCP servers (RAG knowledge base, orders, refunds and tickets), and business rules are enforced in the servers rather than the prompt. Measured on 28 scripted scenarios: 27/28 resolved with 0 policy violations, versus 4 of 14 attacks succeeding when the same rules lived only in the prompt.",
+    period: "Sep 2026",
+    tags: ["AI Agents", "MCP", "RAG", "TypeScript", "Next.js", "Tool Calling", "Evals", "Vercel"],
+    github: "https://github.com/yashharkawat/helpdesk-agent",
+    live: "https://helpdesk-agent.zojoofficial.com",
+    gradient: "from-sky-500/10 dark:from-sky-500/20 to-emerald-500/10 dark:to-emerald-500/20",
+    borderGlow: "hover:border-sky-300 dark:hover:border-sky-500/30",
+  },
+  {
     title: "FNF Recovery Assistant",
     description:
       "A full-stack SaaS app that helps Indian employees recover unpaid Full & Final settlement dues from former employers. Features a 4-stage email escalation system (polite reminder → legal notice), formal labour complaint filing with state-specific guides for all 36 states/UTs, Razorpay payments, Google OAuth, and cloud file uploads for evidence management.",
