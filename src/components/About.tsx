@@ -2,6 +2,7 @@
 
 import AnimatedSection from "./AnimatedSection";
 import { ArrowUpRight } from "lucide-react";
+import { joinedNewRole } from "@/data/profile";
 
 const facts = [
   { value: "AIR 612", label: "JEE Advanced rank, top 0.02%" },
@@ -40,9 +41,9 @@ export default function About() {
               <p>
                 At{" "}
                 <span className="font-semibold text-[#0a0a0a] dark:text-[#f0f0ee]">Pulse Energy</span>
-                , I build full-stack features for EV charging infrastructure, from
+                , I {joinedNewRole ? "built" : "build"} full-stack features for EV charging infrastructure, from
                 React UIs to Node.js APIs, charging protocols (OCPI, Beckn) and an uptime
-                platform used by 50+ charge point operators. My work ships in the MG Motor
+                platform used by 50+ charge point operators. That work ships in the MG Motor
                 app, used by 50,000+ EV owners.
               </p>
               <p>

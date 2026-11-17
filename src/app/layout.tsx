@@ -1,3 +1,4 @@
+import { profile } from "@/data/profile";
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -32,7 +33,7 @@ export const metadata: Metadata = {
     template: "%s | Yash Harkawat",
   },
   description:
-    "Portfolio of Yash Harkawat, Software Engineer at Pulse Energy. IIT Kharagpur graduate specializing in full-stack web development with React, Node.js, and TypeScript.",
+    `Portfolio of Yash Harkawat, Software Engineer at ${profile.company}. IIT Kharagpur graduate specializing in full-stack web development with React, Node.js, and TypeScript.`,
   keywords: [
     "Yash Harkawat",
     "Software Engineer",
@@ -54,7 +55,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Yash Harkawat | Software Engineer",
     description:
-      "Software Engineer at Pulse Energy. IIT Kharagpur graduate. Building full-stack web applications.",
+      `Software Engineer at ${profile.company}. IIT Kharagpur graduate. Building full-stack web applications.`,
     type: "website",
     url: "/",
     siteName: "Yash Harkawat",
@@ -64,7 +65,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Yash Harkawat | Software Engineer",
     description:
-      "Software Engineer at Pulse Energy. IIT Kharagpur graduate. Building full-stack web applications.",
+      `Software Engineer at ${profile.company}. IIT Kharagpur graduate. Building full-stack web applications.`,
   },
 };
 

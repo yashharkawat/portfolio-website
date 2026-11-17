@@ -1,3 +1,4 @@
+import { profile } from "@/data/profile";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import MarqueeStrip from "@/components/MarqueeStrip";
@@ -9,6 +10,9 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
 
+/** Re-render hourly so date-based copy (current employer) stays right without a deploy. */
+export const revalidate = 3600;
+
 const baseUrl = "https://www.yashharkawat.com";
 
 const jsonLd = {
@@ -18,11 +22,11 @@ const jsonLd = {
       "@type": "Person",
       name: "Yash Harkawat",
       jobTitle: "Software Engineer",
-      worksFor: { "@type": "Organization", name: "Pulse Energy" },
+      worksFor: { "@type": "Organization", name: profile.company },
       alumniOf: { "@type": "CollegeOrUniversity", name: "IIT Kharagpur" },
       url: baseUrl,
       description:
-        "Software Engineer at Pulse Energy. IIT Kharagpur graduate building full-stack products and AI agents with React, Node.js and TypeScript.",
+        `Software Engineer at ${profile.company}. IIT Kharagpur graduate building full-stack products and AI agents with React, Node.js and TypeScript.`,
       sameAs: ["https://github.com/yashharkawat", "https://www.linkedin.com/in/yash-harkawat"],
     },
     {
@@ -30,7 +34,7 @@ const jsonLd = {
       name: "Yash Harkawat | Software Engineer",
       url: baseUrl,
       description:
-        "Portfolio of Yash Harkawat, Software Engineer at Pulse Energy. IIT Kharagpur graduate specializing in full-stack web development.",
+        `Portfolio of Yash Harkawat, Software Engineer at ${profile.company}. IIT Kharagpur graduate specializing in full-stack web development.`,
       publisher: { "@type": "Person", name: "Yash Harkawat" },
     },
   ],

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
 import VisitorStats from "./VisitorStats";
+import { profile, joinedNewRole } from "@/data/profile";
 
 const roles = ["Full Stack Engineer", "AI Agent Builder", "Product Builder", "Node.js Engineer"];
 
@@ -27,10 +28,12 @@ export default function Hero() {
         >
           {/* Status badge + visitor stats */}
           <div className="flex items-center gap-3 mb-6 sm:mb-8 flex-wrap">
-            <span className="flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold bg-black dark:bg-white/10 text-white dark:text-white border border-black/10 dark:border-white/10">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#c9f04a] animate-pulse" />
-              Open to opportunities
-            </span>
+            {!joinedNewRole && (
+              <span className="flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold bg-black dark:bg-white/10 text-white dark:text-white border border-black/10 dark:border-white/10">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#c9f04a] animate-pulse" />
+                Open to opportunities
+              </span>
+            )}
             <VisitorStats />
           </div>
 
@@ -43,7 +46,7 @@ export default function Hero() {
             {/* Role box tucked bottom-right of name */}
             <span className="text-sm sm:text-base font-normal tracking-normal leading-normal mb-3 sm:mb-4 text-gray-500 dark:text-gray-400 flex flex-col items-end">
               <span className="section-label mb-1">Currently</span>
-              <span className="font-medium text-[#0a0a0a] dark:text-[#f0f0ee]">Software Engineer @ Pulse Energy</span>
+              <span className="font-medium text-[#0a0a0a] dark:text-[#f0f0ee]">{profile.title} @ {profile.company}</span>
             </span>
           </h1>
         </motion.div>

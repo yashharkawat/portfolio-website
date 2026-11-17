@@ -3,10 +3,13 @@
  * "Chat with Yash" assistant answers from it, so the two can never disagree.
  */
 
+/** From this day the site shows the new employer. Pages re-render hourly, so no deploy is needed. */
+export const joinedNewRole = Date.now() >= Date.parse("2026-11-24T00:00:00+05:30");
+
 export const profile = {
   name: "Yash Harkawat",
   title: "Software Engineer",
-  company: "Pulse Energy",
+  company: joinedNewRole ? "FlexEnergi" : "Pulse Energy",
   location: "Bengaluru, India",
   email: "yashharkawat2000@gmail.com",
   github: "https://github.com/yashharkawat",
@@ -14,7 +17,7 @@ export const profile = {
   site: "https://www.yashharkawat.com",
   resume: "/Yash_Harkawat_Resume.pdf",
   summary:
-    "Full stack engineer from IIT Kharagpur. I have 2.5+ years of shipping production software end to end: PostgreSQL schema, Node.js and TypeScript services, React UIs. At Pulse Energy I work on an EV charging platform behind the MG Motor app, used by 50,000+ EV owners. Outside work I build and run my own products, most of them around LLMs, agents and MCP.",
+    `Full stack engineer from IIT Kharagpur. I have 2.5+ years of shipping production software end to end: PostgreSQL schema, Node.js and TypeScript services, React UIs. At Pulse Energy I ${joinedNewRole ? "worked" : "work"} on an EV charging platform behind the MG Motor app, used by 50,000+ EV owners. Outside work I build and run my own products, most of them around LLMs, agents and MCP.`,
   education:
     "Dual Degree (B.Tech + M.Tech) in Electrical Engineering, IIT Kharagpur, Jun 2018 to May 2023, CGPA 7.44/10.",
   achievements: [
@@ -131,15 +134,26 @@ export const earlierProjects = [
   { title: "Movies Website", year: "2023", stack: "React, REST API", live: "https://imdb-movies-rating.yashharkawat.com" },
 ];
 
+const newRole = {
+  title: "Software Engineer, DER Integration",
+  company: "FlexEnergi",
+  location: "Remote",
+  period: "Nov 2026 – Present",
+  current: true,
+  points: [] as string[],
+  tags: [] as string[],
+};
+
 export const experiences = [
+  ...(joinedNewRole ? [newRole] : []),
   {
     title: "Software Engineer",
     company: "Pulse Energy Technologies",
     location: "Bengaluru",
-    period: "Dec 2023 – Present",
-    current: true,
+    period: joinedNewRole ? "Dec 2023 – Nov 2026" : "Dec 2023 – Present",
+    current: !joinedNewRole,
     points: [
-      "Build full-stack features (React.js, Node.js, TypeScript, Prisma, PostgreSQL) for an EV charging platform behind the MG Motor app, used by 50,000+ EV owners across India.",
+      "Built full-stack features (React.js, Node.js, TypeScript, Prisma, PostgreSQL) for an EV charging platform behind the MG Motor app, used by 50,000+ EV owners across India.",
       "Designed and shipped a real-time Uptime & Reliability platform: a 1-hour aggregation pipeline (168 buckets per charge point per week) on Redis-backed queues and workers, rolled out across 50+ charge point operators with sub-500 ms reads from pre-aggregated rollups.",
       "Built two charging-protocol stacks, Beckn (UBC) and a full OCPI module suite (locations, sessions, tokens, CDRs, commands), plus a UBC to OCPI adaptor that connects Beckn flows to external operators in production.",
       "Moved the route-planning backend from Python to Node.js, re-implementing 14+ REST APIs (route creation, elevation, favourites, history) with zero behaviour regressions.",

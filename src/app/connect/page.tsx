@@ -3,13 +3,16 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
 import ConnectPanel from "@/components/ConnectPanel";
+import AskYash from "@/components/AskYash";
 
 export const metadata: Metadata = {
   title: "Chat with Yash",
   description:
-    "Pick a topic and a 15 or 30 minute slot to talk to Yash Harkawat about a role, a project, AI agents or anything else.",
+    "Ask the AI assistant about Yash Harkawat's work and projects, or book a 15 or 30 minute call with him.",
   alternates: { canonical: "/connect" },
 };
+
+export const revalidate = 3600;
 
 const navLinks = [
   { label: "About", href: "/#about" },
@@ -31,9 +34,13 @@ export default function ConnectPage() {
             Let&apos;s talk.
           </h1>
           <p className="text-gray-500 dark:text-gray-400 text-base sm:text-lg leading-relaxed max-w-2xl mb-10">
-            A short video call works best. Pick what you want to talk about and how long you need.
-            If a call is too much, a message is fine too.
+            Quick question? Ask the assistant, it knows my work and projects. For anything real,
+            book a short call below.
           </p>
+          <AskYash />
+          <h2 className="text-xl sm:text-2xl font-bold text-[#0a0a0a] dark:text-[#f0f0ee] mt-14 mb-6">
+            Book a call
+          </h2>
           <ConnectPanel calLink={process.env.NEXT_PUBLIC_CAL_LINK || ""} />
         </div>
       </main>
