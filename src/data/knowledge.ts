@@ -63,7 +63,16 @@ Scale of his contribution (from the company's GitHub history)
 - Where: core backend about 619 PRs, operator console (React) about 283, shared types library about 280, an enterprise client's charging management system about 110, the rest in protocol services, a workflow service, a fleet driver app and web apps.
 - About 2,233 commits in the core backend alone.
 
-Main things he built, biggest first
+HEADLINE WORK IN PLAIN WORDS (start here; most visitors do not know EV charging terms)
+1. Connected the company's chargers to India's national EV charging network. Think of it as UPI for charging: a driver can find, pay for and start a charge on any member's charger from a third-party app such as BHIM. He built the whole seller side: the order flow, payments hand-off, reservations and live availability updates. (Domain names: UBC, Beckn, OCPI.)
+2. Made slow analytics fast. Charger uptime reports used to scan millions of raw log rows on every request. He redesigned them to keep small hourly summaries updated by events through queues, so a week of data for one connector is 168 rows.
+3. Built a workflow automation engine from scratch, similar to Zapier or n8n: users draw a flow on a canvas, and it runs on triggers (schedule, webhook, platform events) with retries, encrypted credentials and integrations such as Slack, ServiceNow, SAP and Microsoft 365.
+4. Built a custom pricing engine. Different customers (a fleet, a partner app, one user) can have negotiated prices at chosen chargers. The most specific rule wins, prices are frozen when a session starts so later edits never change a running bill, and the charger owner is still paid at their normal rate. (Internal name: business agreements.)
+5. Built a rewards wallet with bill payments inside the consumer app, for example recharging a highway toll tag. Money is collected first and the bill is paid second, with an automatic refund if the second step fails, and locks that stop double spending. (Domain name: BBPS, India's bill payment system.)
+6. Built the trip planner backend for the MG Motor app: routes with charging stops, multi-stop trips, elevation, favourites and history, about 20 endpoints.
+7. Built most of a charging management system for a large enterprise client: notifications, 18 report types, ticketing-system integration, firmware and asset management.
+
+The same work in more technical detail, biggest first
 
 1. UBC (Beckn) seller-side stack, Nov 2025 to Oct 2026. UBC is India's unified EV charging network run on NPCI's Beckn-based rails, which lets users of apps such as BHIM find, pay for and run a charge on any member's chargers.
 - Implemented the order flow actions (select, init, confirm, update for start and stop, track, status, cancel, support, rating), each with its callback, in two layers: a protocol service that validates, signs and translates payloads, and the core backend holding the logic.

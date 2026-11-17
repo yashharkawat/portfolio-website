@@ -155,12 +155,14 @@ export const experiences = [
     points: [
       "Built full-stack features (React.js, Node.js, TypeScript, Prisma, PostgreSQL) for an EV charging platform behind the MG Motor app, used by 50,000+ EV owners across India.",
       "Designed and shipped a real-time Uptime & Reliability platform: a 1-hour aggregation pipeline (168 buckets per charge point per week) on Redis-backed queues and workers, rolled out across 50+ charge point operators with sub-500 ms reads from pre-aggregated rollups.",
-      "Built two charging-protocol stacks, Beckn (UBC) and a full OCPI module suite (locations, sessions, tokens, CDRs, commands), plus a UBC to OCPI adaptor that connects Beckn flows to external operators in production.",
+      "Connected the platform to India's national EV charging network. Drivers can now find, pay for and start a charge from third-party apps such as BHIM. I built the order flow, reservations, live availability updates and a bridge service for another operator's chargers (Beckn/UBC and OCPI protocols).",
+      "Built a workflow automation engine from scratch. It works like n8n: a canvas builder, triggers, retries, encrypted credentials and integrations with Slack, ServiceNow, SAP and Microsoft 365.",
+      "Built a custom pricing engine for negotiated rates per fleet, app or user. Also built a rewards wallet with bill payments. If a payment step fails, it refunds by itself.",
       "Moved the route-planning backend from Python to Node.js, re-implementing 14+ REST APIs (route creation, elevation, favourites, history) with zero behaviour regressions.",
       "Delivered 15+ features on my own from PostgreSQL schema to REST API to React UI, and designed a chunked-streaming report pipeline that cut PDF download time and server load.",
       "Built internal Claude Code agent skills that trace failed Beckn transactions to the failing step, and a multi-persona AI PR-review tool that posts inline GitHub reviews.",
     ],
-    tags: ["React.js", "Node.js", "TypeScript", "Prisma", "PostgreSQL", "Redis", "OCPI", "Beckn"],
+    tags: ["React.js", "Node.js", "TypeScript", "Prisma", "PostgreSQL", "Redis", "BullMQ", "Kafka"],
   },
   {
     title: "Front-end Developer",
