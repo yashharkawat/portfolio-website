@@ -37,7 +37,8 @@ function Linked({ text }: { text: string }) {
   );
 }
 
-export default function AskYash() {
+/** `fill` makes the chat take the full height of its container (used by the side panel). */
+export default function AskYash({ fill = false, autoFocus = false }: { fill?: boolean; autoFocus?: boolean }) {
   const [messages, setMessages] = useState<Msg[]>([]);
   const [input, setInput] = useState("");
   const [busy, setBusy] = useState(false);
@@ -86,7 +87,7 @@ export default function AskYash() {
   }
 
   return (
-    <div className="card p-0 overflow-hidden">
+    <div className={fill ? "flex flex-col h-full min-h-0" : "card p-0 overflow-hidden"}>
       <div className="flex items-center gap-2 px-5 sm:px-6 py-4 border-b border-[#e0dfd9] dark:border-[#1c1c1c]">
         <span className="w-7 h-7 rounded-full bg-[#c9f04a] flex items-center justify-center">
           <Sparkles size={14} className="text-[#0a0a0a]" />
@@ -97,7 +98,7 @@ export default function AskYash() {
         </div>
       </div>
 
-      <div ref={scroller} className="px-5 sm:px-6 py-5 space-y-4 max-h-[420px] overflow-y-auto" aria-live="polite">
+      <div ref={scroller} className={`px-5 sm:px-6 py-5 space-y-4 overflow-y-auto ${fill ? "flex-1 min-h-0" : "max-h-[420px]"}`} aria-live="polite">
         {messages.length === 0 ? (
           <div>
             <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
@@ -145,6 +146,7 @@ export default function AskYash() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           maxLength={MAX_CHARS}
+          autoFocus={autoFocus}
           placeholder="Ask a question about Yash"
           aria-label="Ask a question about Yash"
           className="flex-1 min-w-0 px-4 py-2.5 rounded-full bg-[#f5f4f0] dark:bg-[#161616] border border-[#e0dfd9] dark:border-[#2a2a2a] text-[#0a0a0a] dark:text-[#f0f0ee] placeholder:text-gray-400 dark:placeholder:text-gray-600 focus:outline-none focus:border-[#c9f04a] text-sm"

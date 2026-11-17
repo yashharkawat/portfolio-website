@@ -9,6 +9,7 @@ import Skills from "@/components/Skills";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
+import AskWidget from "@/components/AskWidget";
 
 /** Re-render hourly so date-based copy (current employer) stays right without a deploy. */
 export const revalidate = 3600;
@@ -59,6 +60,7 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
+      <AskWidget />
     </>
   );
 }
