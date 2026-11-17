@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import Link from "next/link";
 import ThemeToggle from "./ThemeToggle";
 
 const defaultLinks = [
@@ -41,9 +42,9 @@ export default function Navbar({ links = defaultLinks }: NavbarProps) {
         }`}
       >
         <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 py-4 flex items-center justify-between">
-          <a href="#" className="text-lg font-bold tracking-tight text-[#0a0a0a] dark:text-[#f0f0ee]">
+          <Link href="/" className="text-lg font-bold tracking-tight text-[#0a0a0a] dark:text-[#f0f0ee]">
             YH<span className="text-[#c9f04a]">.</span>
-          </a>
+          </Link>
 
           {/* Desktop */}
           <div className="hidden md:flex items-center gap-7">
@@ -57,6 +58,9 @@ export default function Navbar({ links = defaultLinks }: NavbarProps) {
               </a>
             ))}
             <ThemeToggle />
+            <a href="/connect" className="btn-outline text-xs px-4 py-2">
+              Chat with Yash
+            </a>
             <a
               href="/Yash_Harkawat_Resume.pdf"
               target="_blank"
@@ -102,11 +106,14 @@ export default function Navbar({ links = defaultLinks }: NavbarProps) {
                   {link.label}
                 </motion.a>
               ))}
+              <a href="/connect" className="btn-outline mt-6 justify-center">
+                Chat with Yash
+              </a>
               <a
                 href="/Yash_Harkawat_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary mt-6 justify-center"
+                className="btn-primary mt-3 justify-center"
               >
                 Resume
               </a>

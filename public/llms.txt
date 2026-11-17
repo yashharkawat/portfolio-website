@@ -1,0 +1,22 @@
+# Yash Harkawat
+
+> Software Engineer at Pulse Energy, Bengaluru. IIT Kharagpur (B.Tech + M.Tech, 2023). Full stack: React, Node.js, TypeScript, PostgreSQL. Builds LLM products: agents, MCP servers, RAG with measured evals.
+
+## Pages
+- [Home](https://www.yashharkawat.com/): about, projects, experience, skills, contact
+- [Chat with Yash](https://www.yashharkawat.com/connect): ask for a 15 or 30 minute call
+- [Resume (PDF)](https://www.yashharkawat.com/Yash_Harkawat_Resume.pdf)
+
+## Projects
+- [Zojo](https://zojoofficial.com): clothing brand with India and US stores, Next.js, Postgres, Cloud Run
+- [video-automation](https://34-93-91-175.sslip.io): makes and schedules YouTube Shorts, FastAPI, YouTube Data API
+- [Codebase Copilot](https://codebase-copilot.zojoofficial.com): MCP server for hybrid code search, Recall@5 80% to 88%
+- [Helpdesk Agent](https://helpdesk-agent.zojoofficial.com): support agent as an MCP client, 27/28 scenarios, 0 policy violations
+- [Docs Q&A](https://rag-docs-qa.vercel.app): RAG with a citation on every fact
+- [Structured Extraction](https://llm-extract-psi.vercel.app): schema-validated LLM output with a review queue
+- [FNF Recovery Assistant](https://fnf-recovery.yashharkawat.com): SaaS for recovering unpaid final settlement dues
+
+## Contact
+- Email: yashharkawat2000@gmail.com
+- LinkedIn: https://www.linkedin.com/in/yash-harkawat
+- GitHub: https://github.com/yashharkawat

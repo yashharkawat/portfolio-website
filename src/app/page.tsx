@@ -22,14 +22,15 @@ const jsonLd = {
       alumniOf: { "@type": "CollegeOrUniversity", name: "IIT Kharagpur" },
       url: baseUrl,
       description:
-        "Software Engineer at Pulse Energy. IIT Kharagpur graduate specializing in full-stack web development with React, Node.js, and TypeScript.",
+        "Software Engineer at Pulse Energy. IIT Kharagpur graduate building full-stack products and AI agents with React, Node.js and TypeScript.",
+      sameAs: ["https://github.com/yashharkawat", "https://www.linkedin.com/in/yash-harkawat"],
     },
     {
       "@type": "WebSite",
       name: "Yash Harkawat | Software Engineer",
       url: baseUrl,
       description:
-        "Portfolio of Yash Harkawat — Software Engineer at Pulse Energy. IIT Kharagpur graduate specializing in full-stack web development.",
+        "Portfolio of Yash Harkawat, Software Engineer at Pulse Energy. IIT Kharagpur graduate specializing in full-stack web development.",
       publisher: { "@type": "Person", name: "Yash Harkawat" },
     },
   ],

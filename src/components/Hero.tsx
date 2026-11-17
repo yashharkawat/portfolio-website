@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
 import VisitorStats from "./VisitorStats";
 
-const roles = ["Full Stack Engineer", "React Developer", "Product Builder", "Node.js Engineer"];
+const roles = ["Full Stack Engineer", "AI Agent Builder", "Product Builder", "Node.js Engineer"];
 
 export default function Hero() {
   const [roleIndex, setRoleIndex] = useState(0);
@@ -83,8 +83,8 @@ export default function Hero() {
         {/* Stats */}
         <div className="flex flex-wrap gap-6 sm:gap-10">
           {[
-            { value: "2+", label: "Years exp." },
-            { value: "3", label: "Companies" },
+            { value: "2.5+", label: "Years exp." },
+            { value: "50k+", label: "Users served" },
             { value: "IIT KGP", label: "Alumni" },
             { value: "AIR 612", label: "JEE Adv." },
           ].map((s) => (
@@ -102,8 +102,8 @@ export default function Hero() {
           <a href="#products" className="btn-primary">
             View work <ArrowUpRight size={14} />
           </a>
-          <a href="#contact" className="btn-outline">
-            Contact
+          <a href="/connect" className="btn-outline">
+            Chat with Yash
           </a>
           <div className="flex items-center gap-1 ml-2">
             {[

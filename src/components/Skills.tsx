@@ -1,25 +1,8 @@
 "use client";
 
 import AnimatedSection from "./AnimatedSection";
+import { skillGroups } from "@/data/profile";
 
-const skillGroups = [
-  {
-    label: "Frontend",
-    skills: ["React.js", "Next.js", "TypeScript", "JavaScript (ES6+)", "Redux", "Tailwind CSS", "HTML5/CSS3", "Material-UI"],
-  },
-  {
-    label: "Backend",
-    skills: ["Node.js", "Express.js", "REST APIs", "Prisma ORM", "PostgreSQL", "SQL", "Python"],
-  },
-  {
-    label: "Tools & Cloud",
-    skills: ["Git", "GitHub", "AWS", "Firebase", "Google Cloud", "Vercel", "Netlify", "PWA", "Web Push", "Chrome Extensions"],
-  },
-  {
-    label: "CS Fundamentals",
-    skills: ["Data Structures & Algorithms", "System Design", "OOP", "C", "C++", "Debugging"],
-  },
-];
 
 export default function Skills() {
   return (

@@ -1,88 +1,9 @@
 "use client";
 
 import AnimatedSection from "./AnimatedSection";
-import { ExternalLink, Github, Calendar, Star } from "lucide-react";
+import { ExternalLink, Github, Calendar, Star, ArrowUpRight } from "lucide-react";
+import { featuredProject, projects, earlierProjects } from "@/data/profile";
 
-const featuredProject = {
-  title: "Zojo Fashion",
-  description:
-    "India-first anime/otaku-themed men's clothing e-commerce platform. Full monorepo with a Next.js storefront and Express + TypeScript API. Features Razorpay payments (UPI, cards, COD), phone OTP + JWT auth, Cloudinary CDN images, Prisma ORM with 15+ models, and CI/CD via GitHub Actions.",
-  period: "Apr 2026",
-  tags: ["Next.js", "TypeScript", "Express", "PostgreSQL", "Prisma", "Razorpay", "Cloudinary", "Redux Toolkit"],
-  github: "https://github.com/yashharkawat/zojo-fashion",
-  live: "https://zojo-fashion.yashharkawat.com",
-  gradient: "from-rose-500/8 dark:from-rose-500/15 to-pink-500/8 dark:to-pink-500/15",
-  borderGlow: "hover:border-rose-200 dark:hover:border-rose-500/30",
-};
-
-const projects = [
-  {
-    title: "Codebase Copilot",
-    description:
-      "An MCP server that gives Claude Code, Cursor and Claude Desktop hybrid semantic search over any repository. Tree-sitter AST chunking, local ONNX embeddings (no API key) and BM25 fused with reciprocal-rank fusion. Measured on 50 hand-verified questions: Recall@5 80% → 88%, Recall@1 44% → 62% over a naive RAG baseline. Ships with a remote MCP endpoint, a live retrieval playground and cited LLM answers.",
-    period: "Sep 2026",
-    tags: ["MCP", "RAG", "TypeScript", "Next.js", "Tree-sitter", "ONNX", "BM25", "Vercel"],
-    github: "https://github.com/yashharkawat/codebase-copilot",
-    live: "https://codebase-copilot.zojoofficial.com",
-    gradient: "from-emerald-500/10 dark:from-emerald-500/20 to-teal-500/10 dark:to-teal-500/20",
-    borderGlow: "hover:border-emerald-300 dark:hover:border-emerald-500/30",
-  },
-  {
-    title: "Helpdesk Agent",
-    description:
-      "A customer-support AI agent with a hand-written agent loop. It is an MCP client that discovers its tools from three MCP servers (RAG knowledge base, orders, refunds and tickets), and business rules are enforced in the servers rather than the prompt. Measured on 28 scripted scenarios: 27/28 resolved with 0 policy violations, versus 4 of 14 attacks succeeding when the same rules lived only in the prompt.",
-    period: "Sep 2026",
-    tags: ["AI Agents", "MCP", "RAG", "TypeScript", "Next.js", "Tool Calling", "Evals", "Vercel"],
-    github: "https://github.com/yashharkawat/helpdesk-agent",
-    live: "https://helpdesk-agent.zojoofficial.com",
-    gradient: "from-sky-500/10 dark:from-sky-500/20 to-emerald-500/10 dark:to-emerald-500/20",
-    borderGlow: "hover:border-sky-300 dark:hover:border-sky-500/30",
-  },
-  {
-    title: "FNF Recovery Assistant",
-    description:
-      "A full-stack SaaS app that helps Indian employees recover unpaid Full & Final settlement dues from former employers. Features a 4-stage email escalation system (polite reminder → legal notice), formal labour complaint filing with state-specific guides for all 36 states/UTs, Razorpay payments, Google OAuth, and cloud file uploads for evidence management.",
-    period: "Feb 2026",
-    tags: ["React", "Node.js", "TypeScript", "PostgreSQL", "Razorpay", "Google Cloud", "Prisma"],
-    github: "",
-    live: "https://fnf-recovery.yashharkawat.com",
-    gradient: "from-indigo-500/10 dark:from-indigo-500/20 to-purple-500/10 dark:to-purple-500/20",
-    borderGlow: "hover:border-indigo-300 dark:hover:border-indigo-500/30",
-  },
-  {
-    title: "ScheduleAI",
-    description:
-      "A mobile-first PWA for guided timed workout sessions. Upload a PDF or DOCX and AI auto-extracts your weekly schedule. Features a live session timer with sounds, TTS voice instructions, Web Push notifications, streak tracking, and offline support.",
-    period: "Mar 2026",
-    tags: ["React", "Node.js", "PostgreSQL", "Google OAuth", "Gemini AI", "PWA", "Prisma", "Vercel"],
-    github: "https://github.com/yashharkawat/schedule-ai",
-    live: "https://schedule-ai.yashharkawat.com",
-    gradient: "from-amber-500/10 dark:from-amber-500/20 to-orange-500/10 dark:to-orange-500/20",
-    borderGlow: "hover:border-amber-300 dark:hover:border-amber-500/30",
-  },
-  {
-    title: "Blogs Website",
-    description:
-      "A full-featured blogging platform inspired by Medium. Includes search and filter by author, title, date and topic. Users can create, edit, save, and delete posts seamlessly.",
-    period: "Jun 2023 - Jul 2023",
-    tags: ["React.js", "Firebase", "CSS"],
-    github: "https://github.com/yashharkawat",
-    live: "https://blogs-website.yashharkawat.com",
-    gradient: "from-blue-500/10 dark:from-blue-500/20 to-cyan-500/10 dark:to-cyan-500/20",
-    borderGlow: "hover:border-blue-300 dark:hover:border-blue-500/30",
-  },
-  {
-    title: "Movies Website",
-    description:
-      "A dynamic movie discovery website showing IMDB ratings and descriptions. Features include search functionality, detailed movie pages, and a likes system for personalized experience.",
-    period: "May 2023 - Jun 2023",
-    tags: ["React.js", "API Integration", "CSS"],
-    github: "https://github.com/yashharkawat",
-    live: "https://imdb-movies-rating.yashharkawat.com",
-    gradient: "from-purple-500/10 dark:from-purple-500/20 to-pink-500/10 dark:to-pink-500/20",
-    borderGlow: "hover:border-purple-300 dark:hover:border-purple-500/30",
-  },
-];
 
 function getProjectLink(project: { live: string; github: string }) {
   return project.live || project.github || "";
@@ -269,6 +190,25 @@ export default function Projects() {
             );
           })}
         </div>
+
+        {/* Earlier work - one compact row */}
+        <AnimatedSection delay={0.2}>
+          <div className="mt-6 sm:mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs sm:text-sm text-gray-500 dark:text-gray-500">
+            <span className="section-label">Earlier</span>
+            {earlierProjects.map((p) => (
+              <a
+                key={p.title}
+                href={p.live}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 hover:text-[#0a0a0a] dark:hover:text-[#f0f0ee] transition-colors"
+              >
+                {p.title} <span className="text-gray-400 dark:text-gray-600">({p.year}, {p.stack})</span>
+                <ArrowUpRight size={12} />
+              </a>
+            ))}
+          </div>
+        </AnimatedSection>
       </div>
     </section>
   );

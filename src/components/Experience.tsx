@@ -1,48 +1,8 @@
 "use client";
 
 import AnimatedSection from "./AnimatedSection";
+import { experiences } from "@/data/profile";
 
-const experiences = [
-  {
-    title: "Software Engineer",
-    company: "Pulse Energy Technologies",
-    location: "Bengaluru",
-    period: "Dec 2023 – Present",
-    current: true,
-    points: [
-      "Engineered full-stack features for an EV charging infrastructure platform using React.js, Node.js, TypeScript, and Prisma ORM, shipping to the MG Motor app used by 50,000+ EV owners across India.",
-      "Designed and implemented 10+ backend REST APIs for the route planning feature, enabling real-time EV charger discovery and navigation within the MG Motor mobile application.",
-      "Architected a report generation pipeline using chunked streaming, reducing PDF download times and server load significantly compared to synchronous bulk processing.",
-      "Delivered 15+ end-to-end features independently — from PostgreSQL schema design to React UI — reducing cross-team dependency and accelerating release cycles.",
-      "Resolved 30+ bugs across codebase through code reviews and production incident triage, improving platform stability and reducing critical error rate.",
-    ],
-    tags: ["React.js", "Node.js", "TypeScript", "Prisma", "REST APIs", "PostgreSQL"],
-  },
-  {
-    title: "Front-end Developer",
-    company: "Plunes Technologies",
-    location: "Gurugram",
-    period: "Oct 2023 – Dec 2023",
-    current: false,
-    points: [
-      "Developed 10+ responsive forms and UI pages using React.js and Material-UI, achieving pixel-perfect design consistency across the product.",
-      "Debugged and resolved 15+ critical issues through systematic testing, improving page load performance and reducing user-facing errors.",
-    ],
-    tags: ["React.js", "Material-UI", "JavaScript"],
-  },
-  {
-    title: "Product Engineer Intern",
-    company: "Sprinklr",
-    location: "Gurugram",
-    period: "May 2022 – Jul 2022",
-    current: false,
-    points: [
-      "Engineered a Chrome extension to detect i18n translation errors in real time, significantly reducing QA investigation time for localization issues.",
-      "Implemented color-coded visual highlighting across 100+ client-side i18n labels based on translation file status, enabling faster identification of missing translations.",
-    ],
-    tags: ["Chrome Extension", "i18n", "JavaScript"],
-  },
-];
 
 export default function Experience() {
   return (

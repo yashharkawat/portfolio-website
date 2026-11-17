@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     template: "%s | Yash Harkawat",
   },
   description:
-    "Portfolio of Yash Harkawat — Software Engineer at Pulse Energy. IIT Kharagpur graduate specializing in full-stack web development with React, Node.js, and TypeScript.",
+    "Portfolio of Yash Harkawat, Software Engineer at Pulse Energy. IIT Kharagpur graduate specializing in full-stack web development with React, Node.js, and TypeScript.",
   keywords: [
     "Yash Harkawat",
     "Software Engineer",

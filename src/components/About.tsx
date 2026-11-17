@@ -4,10 +4,10 @@ import AnimatedSection from "./AnimatedSection";
 import { ArrowUpRight } from "lucide-react";
 
 const facts = [
-  { value: "AIR 612", label: "JEE Advanced rank — top 0.02%" },
+  { value: "AIR 612", label: "JEE Advanced rank, top 0.02%" },
   { value: "7.44", label: "CGPA at IIT Kharagpur (B.Tech + M.Tech)" },
   { value: "2018–23", label: "Five years of engineering at IIT KGP" },
-  { value: "MG Motor", label: "App used by thousands of EV owners" },
+  { value: "MG Motor", label: "App used by 50,000+ EV owners" },
 ];
 
 export default function About() {
@@ -35,25 +35,26 @@ export default function About() {
                 I&apos;m a Software Engineer with a dual degree in Electrical Engineering
                 from{" "}
                 <span className="font-semibold text-[#0a0a0a] dark:text-[#f0f0ee]">IIT Kharagpur</span>
-                . I thrive at the intersection of clean code and thoughtful product design.
+                . I like owning a feature from the database schema to the UI.
               </p>
               <p>
                 At{" "}
                 <span className="font-semibold text-[#0a0a0a] dark:text-[#f0f0ee]">Pulse Energy</span>
-                , I build full-stack features for EV charging infrastructure — from
-                responsive React UIs to performant Node.js APIs with Prisma. My work
-                ships in the MG Motor app, used by thousands of EV owners daily.
+                , I build full-stack features for EV charging infrastructure, from
+                React UIs to Node.js APIs, charging protocols (OCPI, Beckn) and an uptime
+                platform used by 50+ charge point operators. My work ships in the MG Motor
+                app, used by 50,000+ EV owners.
               </p>
               <p>
-                Beyond my job, I build side projects, explore new technologies, and
-                love the challenge of turning complex problems into simple, elegant
-                solutions.
+                Beyond my job, I build and run my own products: a clothing brand with
+                stores in India and the US, a YouTube Shorts automation tool, and a set
+                of AI projects around agents, MCP and retrieval, each with measured results.
               </p>
             </div>
 
             <div className="flex flex-wrap gap-3 mt-8">
-              <a href="#contact" className="btn-primary">
-                Let&apos;s talk <ArrowUpRight size={14} />
+              <a href="/connect" className="btn-primary">
+                Chat with Yash <ArrowUpRight size={14} />
               </a>
               <a
                 href="/Yash_Harkawat_Resume.pdf"
