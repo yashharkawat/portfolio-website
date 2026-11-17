@@ -42,15 +42,14 @@ export interface Project {
 export const featuredProject: Project = {
   title: "Zojo",
   description:
-    "An anime and streetwear clothing brand that I built and run alone. Two stores are live: zojoofficial.com for India and wearzojo.com for the US. One Next.js codebase handles the storefront, cart, checkout, order emails and an admin panel. Orders go straight to print-on-demand partners (Qikink in India, Printful in the US). No inventory. The India store runs as a Docker image on Google Cloud Run behind a Cloudflare Worker, with Postgres on Supabase.",
+    "An anime and streetwear clothing brand that I built and run alone. Two stores are live: zojoofficial.com for India and wearzojo.com for the US. I built the storefront, cart, checkout, online payments, order emails and the admin panel, and I run the day-to-day of the business with my own tooling.",
   period: "Apr 2026 - Present",
-  tags: ["Next.js", "TypeScript", "PostgreSQL", "Drizzle", "Razorpay", "Cloud Run", "Cloudflare Workers", "Docker"],
+  tags: ["Next.js", "TypeScript", "PostgreSQL", "Payments", "E-commerce"],
   github: "",
   live: "https://zojoofficial.com",
   gradient: "from-rose-500/8 dark:from-rose-500/15 to-pink-500/8 dark:to-pink-500/15",
   borderGlow: "hover:border-rose-200 dark:hover:border-rose-500/30",
-  notes:
-    "US store: https://wearzojo.com. Moved the India store from Vercel to Google Cloud Run in Nov 2026; the host is one Cloudflare Worker setting, so it can move again in seconds. Payments by Razorpay (UPI, cards). Daily jobs sync the product catalogue and support mail.",
+  notes: "US store: https://wearzojo.com.",
 };
 
 export const projects: Project[] = [
@@ -59,13 +58,13 @@ export const projects: Project[] = [
     description:
       "A web app that makes YouTube Shorts in viral simulation formats and posts them on a schedule. You connect a channel, pick a format and set a rule like \"every day at 12:00\". Each video is rendered on the server, then waits for your approve or reject. It can also post by itself if you switch that on. A 95-check end-to-end test suite covers it.",
     period: "Nov 2026",
-    tags: ["Python", "FastAPI", "SQLAlchemy", "YouTube Data API", "OAuth 2.0", "Docker", "Google Cloud"],
+    tags: ["Python", "FastAPI", "YouTube Data API", "OAuth 2.0"],
     github: "",
     live: "https://34-93-91-175.sslip.io",
     gradient: "from-violet-500/10 dark:from-violet-500/20 to-indigo-500/10 dark:to-indigo-500/20",
     borderGlow: "hover:border-violet-300 dark:hover:border-violet-500/30",
     notes:
-      "Runs on one Google Cloud VM with Docker and Caddy for HTTPS. Videos are physics simulations (for example a ball escaping rotating rings) rendered in Python at 1080x1920. A test channel posts public Shorts every day through the app's own scheduler.",
+      "Videos are physics simulations, for example a ball escaping rotating rings. A test channel posts public Shorts every day through the app's own scheduler.",
   },
   {
     title: "Codebase Copilot",
@@ -154,15 +153,15 @@ export const experiences = [
     current: !joinedNewRole,
     points: [
       "Built full-stack features (React.js, Node.js, TypeScript, Prisma, PostgreSQL) for an EV charging platform behind the MG Motor app, used by 50,000+ EV owners across India.",
-      "Designed and shipped a real-time Uptime & Reliability platform: a 1-hour aggregation pipeline (168 buckets per charge point per week) on Redis-backed queues and workers, rolled out across 50+ charge point operators with sub-500 ms reads from pre-aggregated rollups.",
+      "Rebuilt charger uptime and reliability reporting. Operators now see the health of every charger without slow reports.",
       "Connected the platform to India's national EV charging network. Drivers can now find, pay for and start a charge from third-party apps such as BHIM. I built the order flow, reservations, live availability updates and a bridge service for another operator's chargers (Beckn/UBC and OCPI protocols).",
       "Built a workflow automation engine from scratch. It works like n8n: a canvas builder, triggers, retries, encrypted credentials and integrations with Slack, ServiceNow, SAP and Microsoft 365.",
       "Built a custom pricing engine for negotiated rates per fleet, app or user. Also built a rewards wallet with bill payments. If a payment step fails, it refunds by itself.",
       "Moved the route-planning backend from Python to Node.js, re-implementing 14+ REST APIs (route creation, elevation, favourites, history) with zero behaviour regressions.",
-      "Delivered 15+ features on my own from PostgreSQL schema to REST API to React UI, and designed a chunked-streaming report pipeline that cut PDF download time and server load.",
+      "Delivered 15+ features on my own, from database schema to REST API to React UI.",
       "Built internal Claude Code agent skills that trace failed Beckn transactions to the failing step, and a multi-persona AI PR-review tool that posts inline GitHub reviews.",
     ],
-    tags: ["React.js", "Node.js", "TypeScript", "Prisma", "PostgreSQL", "Redis", "BullMQ", "Kafka"],
+    tags: ["React.js", "Node.js", "TypeScript", "PostgreSQL", "Redis", "Kafka"],
   },
   {
     title: "Front-end Developer",
@@ -205,6 +204,6 @@ export const skillGroups = [
   },
   {
     label: "Platform & Cloud",
-    skills: ["OCPI & Beckn (UBC)", "JWT, OAuth 2.0, RBAC", "Razorpay", "Webhooks", "AWS", "Google Cloud", "Cloudflare Workers", "Vercel", "Docker", "GitHub Actions"],
+    skills: ["OCPI & Beckn (UBC)", "JWT, OAuth 2.0, RBAC", "Razorpay", "Webhooks", "AWS", "Google Cloud", "Vercel", "Docker", "GitHub Actions"],
   },
 ];
