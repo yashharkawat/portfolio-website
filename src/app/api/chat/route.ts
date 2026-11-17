@@ -6,6 +6,20 @@ export const maxDuration = 60;
 
 const MAX_CHARS = 500;
 const MAX_TURNS = 8;
+/** The whole request, and the history we forward, are capped so the endpoint cannot be used as a free general-purpose model. */
+const MAX_BODY_BYTES = 12_000;
+const MAX_HISTORY_CHARS = 5_000;
+
+/** A browser on another website must not be able to spend this endpoint. Same-site and non-browser calls pass. */
+function originAllowed(req: Request): boolean {
+  const origin = req.headers.get("origin");
+  if (!origin) return true;
+  try {
+    return new URL(origin).host === req.headers.get("host");
+  } catch {
+    return false;
+  }
+}
 const DAILY_BUDGET = Number(process.env.CHAT_DAILY_BUDGET || 25);
 
 const json = (status: number, error: string, headers: Record<string, string> = {}) =>
@@ -22,18 +36,31 @@ function parse(body: unknown): ChatMessage[] | null {
     const text = content.trim();
     if (!text) return null;
     if (role === "user" && text.length > MAX_CHARS) return null;
-    out.push({ role, content: text.slice(0, 2000) });
+    out.push({ role, content: text.slice(0, 1500) });
   }
   if (out[out.length - 1].role !== "user") return null;
-  return out.slice(-MAX_TURNS);
+  // Keep the newest turns that fit the budget; the latest question is always kept.
+  const kept: ChatMessage[] = [];
+  let used = 0;
+  for (const m of out.slice(-MAX_TURNS).reverse()) {
+    if (kept.length && used + m.content.length > MAX_HISTORY_CHARS) break;
+    kept.unshift(m);
+    used += m.content.length;
+  }
+  while (kept[0]?.role === "assistant") kept.shift();
+  return kept;
 }
 
 export async function POST(req: Request) {
-  if (!llmConfigured()) return json(503, "The assistant is switched off right now. Please use the form below.");
+  if (!llmConfigured()) return json(503, "The assistant is switched off right now. Please book a call below.");
+
+  if (!originAllowed(req)) return json(403, "This endpoint only serves its own page.");
 
   let body: unknown;
   try {
-    body = await req.json();
+    const raw = await req.text();
+    if (raw.length > MAX_BODY_BYTES) return json(413, "That message is too long.");
+    body = JSON.parse(raw);
   } catch {
     return json(400, "Bad request.");
   }
@@ -45,10 +72,10 @@ export async function POST(req: Request) {
   const day = rateLimit(`d:${ip}`, 20, 24 * 3_600_000);
   if (!burst.ok || !day.ok) {
     const wait = Math.max(burst.retryAfterSec, day.retryAfterSec);
-    return json(429, "That is a lot of questions. Give it a few minutes, or use the form below.", { "Retry-After": String(wait) });
+    return json(429, "That is a lot of questions. Give it a few minutes, or book a call below.", { "Retry-After": String(wait) });
   }
   if (!rateLimit("global", DAILY_BUDGET, 24 * 3_600_000).ok) {
-    return json(429, "The assistant has reached its limit for today. Please use the form below or email Yash.");
+    return json(429, "The assistant has reached its limit for today. Please book a call below or email Yash.");
   }
 
   try {
@@ -57,6 +84,6 @@ export async function POST(req: Request) {
       headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-store", "X-Content-Type-Options": "nosniff" },
     });
   } catch {
-    return json(503, "The assistant is busy right now. Try again in a minute, or use the form below.");
+    return json(503, "The assistant is busy right now. Try again in a minute, or book a call below.");
   }
 }
