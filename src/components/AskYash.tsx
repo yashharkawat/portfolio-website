@@ -16,7 +16,8 @@ const MAX_CHARS = 500;
 
 /** Turns bare URLs and emails into links; everything else stays plain text. */
 function Linked({ text }: { text: string }) {
-  const parts = text.split(/(https?:\/\/[^\s)]+[^\s).,]|[\w.+-]+@[\w-]+\.[\w.]+\w)/g);
+  // Free models sometimes add markdown bold; the bubble is plain text, so drop the asterisks.
+  const parts = text.replace(/\*\*/g, "").split(/(https?:\/\/[^\s)]+[^\s).,]|[\w.+-]+@[\w-]+\.[\w.]+\w)/g);
   return (
     <>
       {parts.map((part, i) =>
